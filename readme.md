@@ -1,4 +1,4 @@
-	
+# library-store	
 Description ::
 	Develop a spring boot web application for managing a small library.
 	The application should have a frontend interface and a backend (admin) interface.
@@ -9,7 +9,8 @@ Description ::
 	They should also be able to see past books they have borrowed.
 	When a book has exceeded it's rental period, an automatic mail should be triggered
 	remind the customer to return it.
-	
+	::
+    
 Entities (NOTE: Not all possible fields are provided, use your intuition where necessary) ::
 
 	User: 
@@ -41,4 +42,4 @@ Entities (NOTE: Not all possible fields are provided, use your intuition where n
 		ReturnedDate
 		
 		# library-store
-# library-store
+
