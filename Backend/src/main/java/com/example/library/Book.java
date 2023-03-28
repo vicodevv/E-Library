@@ -1,5 +1,8 @@
 package com.example.library;
 
+import com.example.library.Enum.Category;
+import com.example.library.Enum.PackageType;
+
 import jakarta.persistence.Table;
 
 @Table(name = "books")
@@ -8,7 +11,7 @@ public class Book {
     private String author;
     private String publishedDate;
     private Category category;
-    private Enum<Category> packageType;
+    private PackageType packageType;
     private Number availableQuantity;
     private Number totalQuantity;
     private String coverPage;
@@ -16,7 +19,7 @@ public class Book {
     public Book(String string, String string2, String string3, String string4, String string5, String string6){   
     }
 
-    public Book(String title, String author, String publishedDate, Category category, Enum<Category> packageType, Number availableQuantity, Number totalQuantity, String coverPage){
+    public Book(String title, String author, String publishedDate, Category category, PackageType packageType, Number availableQuantity, Number totalQuantity, String coverPage){
         this.title = title;
         this.author = author;
         this.publishedDate = publishedDate;
@@ -59,10 +62,10 @@ public class Book {
     }
 
     // Getters and Setters for packageType
-    public Enum<Category> getPackageType() {
+    public PackageType getPackageType() {
         return packageType;
     }
-    public void setPackageType(Enum<Category> packageType) {
+    public void setPackageType(PackageType packageType) {
         this.packageType = packageType;
     }
 
