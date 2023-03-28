@@ -32,12 +32,12 @@ public class UserService {
     }
 
     //Delete user
-    public void deleteUser(Long id) {
-        boolean exists = userRepository.existsById(id);
+    public void deleteUser(Long userId) {
+        boolean exists = userRepository.existsById(userId);
         if (!exists) {
-            throw new IllegalStateException("User with id " + id + " does not exist");
+            throw new IllegalStateException("User with id " + userId + " does not exist");
         }
-        userRepository.deleteById(id);
+        userRepository.deleteById(userId);
     }
     
 }
