@@ -3,10 +3,13 @@ package com.example.library;
 import com.example.library.Enum.Category;
 import com.example.library.Enum.PackageType;
 
+import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Table(name = "books")
 public class Book {
+    @Id
+    private Long bookId;
     private String title;
     private String author;
     private String publishedDate;

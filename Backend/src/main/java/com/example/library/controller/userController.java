@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 import com.example.library.User;
 
-public class userController {
+public class UserController {
 
     @GetMapping()
     public List<User> getUsers() {
