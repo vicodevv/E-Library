@@ -1,5 +1,8 @@
 package com.example.library;
 
+import jakarta.persistence.Table;
+
+@Table(name = "books")
 public class Book {
     private String title;
     private String author;
