@@ -9,3 +9,4 @@ import com.example.library.User;
 public interface UserRepository extends JpaRepository<User, Long> {
     
 }
+
