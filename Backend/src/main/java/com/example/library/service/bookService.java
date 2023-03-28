@@ -5,10 +5,10 @@ import java.util.List;
 import com.example.library.Book;
 import com.example.library.Repository.BookRepository;
 
-public class bookService {
+public class BookService {
     private final BookRepository bookRepository;
 
-    public bookService(BookRepository bookRepository) {
+    public BookService(BookRepository bookRepository) {
         this.bookRepository = bookRepository;
     }
 

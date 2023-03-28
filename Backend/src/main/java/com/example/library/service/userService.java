@@ -10,11 +10,11 @@ import com.example.library.User;
 import com.example.library.Repository.UserRepository;
 
 @Service
-public class userService {
+public class UserService {
     private final UserRepository userRepository;
     
     @Autowired
-    public userService(UserRepository userRepository) {
+    public UserService(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
 
