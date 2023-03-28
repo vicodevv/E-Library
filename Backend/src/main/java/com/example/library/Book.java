@@ -3,12 +3,26 @@ package com.example.library;
 import com.example.library.Enum.Category;
 import com.example.library.Enum.PackageType;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 
-@Table(name = "books")
+@Entity
+@Table
 public class Book {
     @Id
+    @SequenceGenerator(
+            name = "book_sequence",
+            sequenceName = "book_sequence",
+            allocationSize = 1
+    )
+    @GeneratedValue(
+            strategy = GenerationType.SEQUENCE,
+            generator = "book_sequence"
+    )
     private Long bookId;
     private String title;
     private String author;
@@ -19,7 +33,19 @@ public class Book {
     private Number totalQuantity;
     private String coverPage;
 
-    public Book(String string, String string2, String string3, String string4, String string5, String string6){   
+    public Book(){   
+    }
+
+    public Book(Long bookId, String title, String author, String publishedDate, Category category, PackageType packageType, Number availableQuantity, Number totalQuantity, String coverPage){
+        this.bookId = bookId;
+        this.title = title;
+        this.author = author;
+        this.publishedDate = publishedDate;
+        this.category = category;
+        this.packageType = packageType;
+        this.availableQuantity = availableQuantity;
+        this.totalQuantity = totalQuantity;
+        this.coverPage = coverPage;
     }
 
     public Book(String title, String author, String publishedDate, Category category, PackageType packageType, Number availableQuantity, Number totalQuantity, String coverPage){
@@ -32,6 +58,15 @@ public class Book {
         this.totalQuantity = totalQuantity;
         this.coverPage = coverPage;
     }
+
+    // Getters and Setters for bookId
+    public Long getbookId() {
+        return bookId;
+    }
+    public void setId(Long bookId) {
+        this.bookId = bookId;
+    }
+
     // Getters and Setters for title
     public String getTitle() {
         return title;

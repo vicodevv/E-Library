@@ -1,13 +1,19 @@
 package com.example.library.service;
 
 import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.example.library.Book;
 import com.example.library.Repository.BookRepository;
 
+@Service
 public class BookService {
     private final BookRepository bookRepository;
 
+    @Autowired
     public BookService(BookRepository bookRepository) {
         this.bookRepository = bookRepository;
     }
@@ -19,6 +25,11 @@ public class BookService {
 
     //Add book Service
     public void addNewBook(Book book) {
+        Optional<Book> bookOptional = bookRepository.findBookByTitle(book.getTitle());
+
+        if (bookOptional.isPresent()) {
+            throw new IllegalStateException("Book already exists");
+        }
         bookRepository.save(book);
     }
 
