@@ -9,7 +9,7 @@ import com.example.library.User;
 public class userController {
 
     @GetMapping()
-    public List<User> getBooks() {
+    public List<User> getUsers() {
         return List.of(
             new User("John", "Doe", "c@gmail.com", (long) 1234567890, "123 Main St")
         );
