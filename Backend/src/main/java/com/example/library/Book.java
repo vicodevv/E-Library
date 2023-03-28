@@ -1,5 +1,7 @@
 package com.example.library;
 
+import java.time.LocalDate;
+
 import com.example.library.Enum.Category;
 import com.example.library.Enum.PackageType;
 
@@ -26,7 +28,7 @@ public class Book {
     private Long bookId;
     private String title;
     private String author;
-    private String publishedDate;
+    private LocalDate publishedDate;
     private Category category;
     private PackageType packageType;
     private Number availableQuantity;
@@ -36,7 +38,7 @@ public class Book {
     public Book(){   
     }
 
-    public Book(Long bookId, String title, String author, String publishedDate, Category category, PackageType packageType, Number availableQuantity, Number totalQuantity, String coverPage){
+    public Book(Long bookId, String title, String author, LocalDate publishedDate, Category category, PackageType packageType, Number availableQuantity, Number totalQuantity, String coverPage){
         this.bookId = bookId;
         this.title = title;
         this.author = author;
@@ -48,7 +50,7 @@ public class Book {
         this.coverPage = coverPage;
     }
 
-    public Book(String title, String author, String publishedDate, Category category, PackageType packageType, Number availableQuantity, Number totalQuantity, String coverPage){
+    public Book(String title, String author, LocalDate publishedDate, Category category, PackageType packageType, Number availableQuantity, Number totalQuantity, String coverPage){
         this.title = title;
         this.author = author;
         this.publishedDate = publishedDate;
@@ -84,10 +86,10 @@ public class Book {
     }
 
     // Getters and Setters for publishedDate
-    public String getPublishedDate() {
+    public LocalDate getPublishedDate() {
         return publishedDate;
     }
-    public void setPublishedDate(String publishedDate) {
+    public void setPublishedDate(LocalDate publishedDate) {
         this.publishedDate = publishedDate;
     }
 
