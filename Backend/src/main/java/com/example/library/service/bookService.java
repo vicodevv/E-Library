@@ -22,4 +22,13 @@ public class bookService {
         bookRepository.save(book);
     }
 
+    //Delete book
+    public void deleteBook(Long id) {
+        boolean exists = bookRepository.existsById(id);
+        if (!exists) {
+            throw new IllegalStateException("Book with id " + id + " does not exist");
+        }
+        bookRepository.deleteById(id);
+    }
+
 }
