@@ -17,7 +17,7 @@ public class User {
         this.phoneNumber = phoneNumber;
         this.address = address;
     }
-
+    // Getters and Setters for firstName
     public String getFirstName() {
         return firstName;
     }
@@ -25,6 +25,7 @@ public class User {
         this.firstName = firstName;
     }
 
+    // Getters and Setters for lastName
     public String getLastName() {
         return lastName;
     }
@@ -32,6 +33,7 @@ public class User {
         this.lastName = lastName;
     }
 
+    // Getters and Setters for email
     public String getEmail() {
         return email;
     }
@@ -39,6 +41,7 @@ public class User {
         this.email = email;
     }
 
+    // Getters and Setters for phoneNumber
     public Long getPhoneNumber() {
         return phoneNumber;
     }
@@ -46,6 +49,7 @@ public class User {
         this.phoneNumber = phoneNumber;
     }
 
+    // Getters and Setters for address
     public String getAddress() {
         return address;
     }
