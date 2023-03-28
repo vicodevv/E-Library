@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import com.example.library.Library;
+import com.example.library.User;
 import com.example.library.Repository.userRepository;
 
 @Service
@@ -15,7 +15,7 @@ public class userService {
         this.libraryRepository = libraryRepository;
     }
 
-    public List<Library> getBooks() {
+    public List<User> getBooks() {
         return libraryRepository.findAll();
     }
 
