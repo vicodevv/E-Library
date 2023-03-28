@@ -42,8 +42,5 @@ public class BookController {
             bookService.deleteBook(bookId);
         
     }
-
-
-    
     
 }

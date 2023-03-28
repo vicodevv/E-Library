@@ -1,9 +1,12 @@
 package com.example.library;
 
+import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Table(name = "users")
 public class User {
+    @Id
+    private Long userId;
     private String firstName;
     private String lastName;
     private String email;
