@@ -7,8 +7,8 @@ public class Book {
     private String title;
     private String author;
     private String publishedDate;
-    private Enum<E> Category;
-    private Enum<E> packageType;
+    private Category category;
+    private Enum<Category> packageType;
     private Number availableQuantity;
     private Number totalQuantity;
     private String coverPage;
@@ -16,11 +16,11 @@ public class Book {
     public Book(String string, String string2, String string3, String string4, String string5, String string6){   
     }
 
-    public Book(String title, String author, String publishedDate, Enum<E> Category, Enum<E> packageType, Number availableQuantity, Number totalQuantity, String coverPage){
+    public Book(String title, String author, String publishedDate, Category category, Enum<Category> packageType, Number availableQuantity, Number totalQuantity, String coverPage){
         this.title = title;
         this.author = author;
         this.publishedDate = publishedDate;
-        this.Category = Category;
+        this.category = category;
         this.packageType = packageType;
         this.availableQuantity = availableQuantity;
         this.totalQuantity = totalQuantity;
@@ -51,18 +51,18 @@ public class Book {
     }
 
     // Getters and Setters for Category
-    public Enum<E> getCategory() {
-        return Category;
+    public Category getCategory() {
+        return category;
     }
-    public void setCategory(Enum<E> Category) {
-        this.Category = Category;
+    public void setCategory(Category category) {
+        this.category = category;
     }
 
     // Getters and Setters for packageType
-    public Enum<E> getPackageType() {
+    public Enum<Category> getPackageType() {
         return packageType;
     }
-    public void setPackageType(Enum<E> packageType) {
+    public void setPackageType(Enum<Category> packageType) {
         this.packageType = packageType;
     }
 
