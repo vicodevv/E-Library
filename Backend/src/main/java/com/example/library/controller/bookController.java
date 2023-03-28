@@ -24,16 +24,19 @@ public class BookController {
         this.bookService = bookService;
     }
 
+    //Get all books Controller
     @GetMapping()
     public List<Book> getBooks() {
         return bookService.getBooks();
     }
 
+    //Add book Controller
     @PostMapping()
     public void registerNewBook(Book book) {
         bookService.addNewBook(book);
     }
 
+    //Delete book Controller
     @DeleteMapping(path = "{bookId}")
         public void deleteBook(@PathVariable Long bookId){
             bookService.deleteBook(bookId);

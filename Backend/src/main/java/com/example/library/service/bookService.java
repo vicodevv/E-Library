@@ -12,17 +12,17 @@ public class BookService {
         this.bookRepository = bookRepository;
     }
 
-    //Get all books
+    //Get all books Service
     public List<Book> getBooks() {
         return bookRepository.findAll();
     }
 
-    //Add book
+    //Add book Service
     public void addNewBook(Book book) {
         bookRepository.save(book);
     }
 
-    //Delete book
+    //Delete book Service
     public void deleteBook(Long id) {
         boolean exists = bookRepository.existsById(id);
         if (!exists) {
