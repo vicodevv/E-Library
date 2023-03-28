@@ -23,12 +23,12 @@ public class BookService {
     }
 
     //Delete book Service
-    public void deleteBook(Long id) {
-        boolean exists = bookRepository.existsById(id);
+    public void deleteBook(Long bookId) {
+        boolean exists = bookRepository.existsById(bookId);
         if (!exists) {
-            throw new IllegalStateException("Book with id " + id + " does not exist");
+            throw new IllegalStateException("Book with id " + bookId + " does not exist");
         }
-        bookRepository.deleteById(id);
+        bookRepository.deleteById(bookId);
     }
 
 }
