@@ -1,16 +1,16 @@
 package com.example.library;
 
-public class Library {
+public class User {
     private String firstName;
     private String lastName;
     private String email;
     private Long phoneNumber;
     private String address;
 
-    public Library(){
+    public User(){
 
     }
-    public Library(String firstName, String lastName, String email, Long phoneNumber, String address){
+    public User(String firstName, String lastName, String email, Long phoneNumber, String address){
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
