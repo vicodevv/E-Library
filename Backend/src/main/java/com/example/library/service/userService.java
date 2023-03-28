@@ -5,18 +5,18 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import com.example.library.User;
-import com.example.library.Repository.userRepository;
+import com.example.library.Repository.UserRepository;
 
 @Service
 public class userService {
-    private final userRepository libraryRepository;
+    private final UserRepository userRepository;
 
-    public userService(userRepository libraryRepository) {
-        this.libraryRepository = libraryRepository;
+    public userService(UserRepository userRepository) {
+        this.userRepository = userRepository;
     }
 
-    public List<User> getBooks() {
-        return libraryRepository.findAll();
+    public List<User> getUsers() {
+        return userRepository.findAll();
     }
 
     
