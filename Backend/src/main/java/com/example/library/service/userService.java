@@ -18,11 +18,12 @@ public class UserService {
         this.userRepository = userRepository;
     }
 
+    //Get all users Service
     public List<User> getUsers() {
         return userRepository.findAll();
     }
 
-    //Add user
+    //Add user Service
     public void addNewUser(User user) {
         Optional<User> userOptional = userRepository.findUserByEmail(user.getEmail());
         if (userOptional.isPresent()) {
@@ -31,7 +32,7 @@ public class UserService {
         userRepository.save(user);
     }
 
-    //Delete user
+    //Delete user Service
     public void deleteUser(Long userId) {
         boolean exists = userRepository.existsById(userId);
         if (!exists) {

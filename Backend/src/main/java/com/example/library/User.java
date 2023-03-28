@@ -1,11 +1,25 @@
 package com.example.library;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 
-@Table(name = "users")
+@Entity
+@Table
 public class User {
     @Id
+    @SequenceGenerator(
+            name = "book_sequence",
+            sequenceName = "book_sequence",
+            allocationSize = 1
+    )
+    @GeneratedValue(
+            strategy = GenerationType.SEQUENCE,
+            generator = "book_sequence"
+    )
     private Long userId;
     private String firstName;
     private String lastName;
@@ -14,8 +28,16 @@ public class User {
     private String address;
 
     public User(){
-
     }
+    public User(Long userId, String firstName, String lastName, String email, Long phoneNumber, String address){
+        this.userId = userId;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.phoneNumber = phoneNumber;
+        this.address = address;
+    }
+
     public User(String firstName, String lastName, String email, Long phoneNumber, String address){
         this.firstName = firstName;
         this.lastName = lastName;
@@ -23,6 +45,15 @@ public class User {
         this.phoneNumber = phoneNumber;
         this.address = address;
     }
+
+    // Getters and Setters for userId
+    public Long getUserId() {
+        return userId;
+    }
+    public void setUserId(Long userId) {
+        this.userId = userId;
+    }
+    
     // Getters and Setters for firstName
     public String getFirstName() {
         return firstName;
