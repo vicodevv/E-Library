@@ -5,17 +5,19 @@
         <p>Explore new world from authors</p>
         <input type="text" placeholder="Titles, author, or topics">
     </div>
-    <ng-container *ngFor="let game of games">
+    
     <div class="home-container-books">
+        <ng-container *ngFor="let game of games">
         <div class="home-container-books-book">
         <div class="home-container-books-book-cover">
-            <img src="{{  game.background_image }}" alt="">
+            <img src="{{ game.background_image }}" alt="">
         </div>
         <div class="home-container-books-book-info">
             <h1>{{ game.name }}</h1>
             <p>Claudia Wilson</p>
         </div>
     </div>
-    </div>   
 </ng-container>
+    </div>   
+
 </div>
