@@ -3,8 +3,8 @@ export interface Books{
     title: string;
     author: string;
     publishedDate: string;
-    category: Array<string>;
-    packageType: Array<string>;
+    category: Array<Category>;
+    packageType: Array<PackageType>;
     availableQuantity: number;
     totalQuantity: number;
     coverPage: string;
@@ -12,4 +12,12 @@ export interface Books{
 
 export interface APIResponse<T> {
     results: Array<T>;
+}
+
+interface Category {
+    name: string;
+}
+
+interface PackageType {
+    name: string;
 }
