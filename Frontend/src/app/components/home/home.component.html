@@ -5,13 +5,17 @@
         <p>Explore new world from authors</p>
         <input type="text" placeholder="Titles, author, or topics">
     </div>
+    <ng-container *ngFor="let game of games">
     <div class="home-container-books">
-        <div class="home-container-books-cover">
-            <img src="https://marketplace.canva.com/EAFFEs6P168/1/0/1003w/canva-orange-green-watercolor-soft-cute-cartoon-love-romance-book-cover-5Zk2VM0-EAc.jpg" alt="">
+        <div class="home-container-books-book">
+        <div class="home-container-books-book-cover">
+            <img src="{{  game.background_image }}" alt="">
         </div>
-        <div class="home-container-books-info">
-            <h1>{{books.title}}</h1>
+        <div class="home-container-books-book-info">
+            <h1>{{ game.name }}</h1>
             <p>Claudia Wilson</p>
         </div>
+    </div>
     </div>   
+</ng-container>
 </div>
