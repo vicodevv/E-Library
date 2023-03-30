@@ -7,7 +7,7 @@ import { HttpService } from 'src/app/service/http.service';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent{
   public books!: Array<Book>;
 
   constructor(
@@ -16,10 +16,5 @@ export class HomeComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
   ) { }
 
-  ngOnInit(): void {
-    this.httpService.getBooks().subscribe((response: APIResponse<Book>) => {
-      this.books = response.results;
-    });
-  }
 
 }
