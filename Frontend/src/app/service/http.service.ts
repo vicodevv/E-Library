@@ -11,20 +11,7 @@ import { APIResponse, Book } from '../models';
 export class HttpService {
 
   constructor(private http: HttpClient) { }
-  getBooks(
-    ordering: string,
-    search?: string
-  ): Observable<APIResponse<Book>> {
-    let params = new HttpParams().set('ordering', ordering);
-
-    if (search) {
-      params = new HttpParams().set('ordering', ordering).set('search', search);
-    }
-
-    return this.http.get<APIResponse<Book>>(`${env.BASE_URL}/api/books`, {
-      params: params,
-    });
+  getBooks(): Observable<APIResponse<Book>> {
+    return this.http.get<APIResponse<Book>>(`${env.BASE_URL}/api/books`);
   }
-
-
 }
