@@ -7,7 +7,11 @@ import { environment as env } from 'src/environments/environment';
 @Injectable({
   providedIn: 'root'
 })
-export class ServiceService {
+export class HttpService {
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
+
+  getBooks(): Observable<any> {
+    return this.http.get(`${env.BASE_URL}/api/books`);
+  }
 }
