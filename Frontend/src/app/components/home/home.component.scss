@@ -45,6 +45,9 @@
             }
         }
         &-books{
+            display: flex;
+            flex-direction: column;
+            padding: 30px;
             &-cover{
                 img{
                     width: 300px;
