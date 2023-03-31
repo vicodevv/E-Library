@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { APIResponse, Game } from 'src/app/models';
+import { APIResponse, Book } from 'src/app/models';
 import { HttpService } from 'src/app/service/http.service';
 
 
@@ -12,9 +12,9 @@ import { HttpService } from 'src/app/service/http.service';
 })
 export class HomeComponent implements OnInit, OnDestroy {
   public sort: string = 'relevance';
-  public games!: Array<Game>;
+  public book!: Array<Book>;
   private routeSubscribtion!: Subscription;
-  private gameSubscribtion!: Subscription;
+  private bookSubscribtion!: Subscription;
 
   constructor(
     private httpService: HttpService,
@@ -24,34 +24,30 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.routeSubscribtion = this.activatedRoute.queryParams.subscribe((params: Params) => {
-      if (params['game-search']) {
-        this.searchGames('metacrit',params['game-search']);
+      if (params['book-search']) {
+        this.searchBooks('metacrit',params['book-search']);
       }
       else{
-        this.searchGames('metacrit');
+        this.searchBooks('metacrit');
       }
     });
   }
 
-  searchGames(sort: string, search?: string): void {
-    this.gameSubscribtion = this.httpService
-      .getGameList(sort, search)
-      .subscribe((gameList: APIResponse<Game>) => {
-        this.games = gameList.results;
-        console.log(gameList);
+  searchBooks(sort: string, search?: string): void {
+    this.bookSubscribtion = this.httpService
+      .getBooksList(sort, search)
+      .subscribe((bookList: APIResponse<Book>) => {
+        this.book = bookList.results;
+        console.log(bookList);
       });
-  }
-
-  openGameDetails(id: string): void {
-    this.router.navigate(['details', id]);
   }
 
   ngOnDestroy(): void {
     if (this.routeSubscribtion) {
       this.routeSubscribtion.unsubscribe();
     }
-    if (this.gameSubscribtion) {
-      this.gameSubscribtion.unsubscribe();
+    if (this.bookSubscribtion) {
+      this.bookSubscribtion.unsubscribe();
     }
   }
 }
