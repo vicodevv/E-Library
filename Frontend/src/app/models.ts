@@ -12,7 +12,6 @@ export interface Book{
 }
 
 export interface APIResponse<T> {
-    data: Book[];
     results: Array<T>;
 }
 
