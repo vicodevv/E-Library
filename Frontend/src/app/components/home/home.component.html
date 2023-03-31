@@ -7,13 +7,13 @@
     </div>
     
     <div class="home-container-books">
-        <ng-container *ngFor="let game of games">
+        <ng-container *ngFor="let book of book">
         <div class="home-container-books-book">
         <div class="home-container-books-book-cover">
-            <img src="{{ game.background_image }}" alt="">
+            <img src="{{ book.coverPage }}" alt="">
         </div>
         <div class="home-container-books-book-info">
-            <h1>{{ game.name }}</h1>
+            <h1>{{ book.title }}</h1>
             <p>Claudia Wilson</p>
         </div>
     </div>

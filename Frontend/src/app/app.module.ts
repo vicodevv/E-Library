@@ -16,13 +16,17 @@ import { FooterComponent } from './components/footer/footer.component';
 import { HomeComponent } from './components/home/home.component';
 import { HttpErrorsInterceptor } from './interceptors/http-errors.interceptors';
 import { HttpHeadersInterceptor } from './interceptors/http-headers.interceptor';
+import { SignInComponent } from './components/sign-in/sign-in.component';
+import { SignUpComponent } from './components/sign-up/sign-up.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    HomeComponent
+    HomeComponent,
+    SignInComponent,
+    SignUpComponent
   ],
   imports: [
     BrowserModule,
