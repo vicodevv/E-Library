@@ -10,10 +10,10 @@
         <ng-container *ngFor="let book of books">
         <div class="home-container-books-book">
         <div class="home-container-books-book-cover">
-            <img src="{{ book.coverPage }}" alt="">
+            <img *ngIf="book.coverPage" src="{{ book.coverPage }}" alt="">
         </div>
         <div class="home-container-books-book-info">
-            <h1>{{ book.title }}</h1>
+            <h1>giid</h1>
             <p>Claudia Wilson</p>
         </div>
     </div>

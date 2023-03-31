@@ -14,10 +14,9 @@ import { FormsModule } from '@angular/forms';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HomeComponent } from './components/home/home.component';
-import { HttpErrorsInterceptor } from './interceptors/http-errors.interceptors';
-import { HttpHeadersInterceptor } from './interceptors/http-headers.interceptor';
 import { SignInComponent } from './components/sign-in/sign-in.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
+import { HttpService } from './service/http.service';
 
 @NgModule({
   declarations: [
@@ -41,16 +40,7 @@ import { SignUpComponent } from './components/sign-up/sign-up.component';
     FormsModule
   ],
   providers: [
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: HttpErrorsInterceptor,
-      multi: true
-    },
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: HttpHeadersInterceptor,
-      multi: true
-    }
+    HttpService
   ],
   bootstrap: [AppComponent]
 })

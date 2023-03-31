@@ -9,7 +9,7 @@ import { HttpService } from 'src/app/service/http.service';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  public books!: Array<Book>;
+  public books: Array<Book> = [];
   
   constructor(
     private httpService: HttpService,
@@ -17,11 +17,14 @@ export class HomeComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
   ) { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.getBooks();
+  }
 
   getBooks() {
     this.httpService.getAllBooks().subscribe((response: APIResponse<Book>) => {
-      this.books = response.data;
+      this.books = response.results;
+      console.log(response);
     });
   }
 }
