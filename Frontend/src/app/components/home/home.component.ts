@@ -24,7 +24,7 @@ export class HomeComponent implements OnInit {
   getBooks() {
     this.httpService.getAllBooks().subscribe((response: APIResponse<Book>) => {
       this.books = response.results;
-      console.log(response);
+      console.log(this.books);
     });
   }
 }
