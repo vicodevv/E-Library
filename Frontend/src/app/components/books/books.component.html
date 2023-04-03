@@ -1,1 +1,13 @@
-<p>books works!</p>
+<app-header></app-header>
+<div class="books-container">
+    <div class="books-container-books">
+        <div class="books-container-book" *ngFor="let book of books">
+        <div class="book-container-books-book-cover">
+            <img src="{{ book.coverPage }}" alt="{{ book.title }}" />
+        </div>
+        <div class="book-container-books-book-info">
+            <h3>{{ book.title }}</h3>
+            <p>{{ book.author }}</p>
+        </div>
+    </div>
+</div>

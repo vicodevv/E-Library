@@ -1,7 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
-import { result } from 'lodash';
-import { Subscription } from 'rxjs';
 import { APIResponse, Book } from 'src/app/models';
 import { HttpService } from 'src/app/service/http.service';
 @Component({
