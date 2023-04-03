@@ -1,7 +1,6 @@
 .books{
     &-container{
         display: flex;
-        width: 100%;
         margin: 0 auto;
         padding: 0 20px;
 
@@ -10,8 +9,7 @@
             flex-wrap: wrap;
             flex-direction: row;
             width: 100%;
-            overflow-wrap: normal;
-            padding: 30px;       
+            overflow-wrap: normal;     
             &-book{
                 display: flex;
                 flex-direction: column;
@@ -20,7 +18,7 @@
 
                 &-cover{
                     img{
-                        width: 300px;
+                        width: 280px;
                         height: 400px;
                         background-size: cover;
                         object-fit: cover;
