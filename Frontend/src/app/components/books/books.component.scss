@@ -1,0 +1,37 @@
+.books{
+    &-container{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin: 0 auto;
+        max-width: 1200px;
+        padding: 0 20px;
+
+        &-books{
+            display: flex;
+            flex-direction: row;
+            padding: 30px;
+            overflow-x: auto;
+
+            &-book{
+                display: flex;
+                flex-direction: column;
+                padding: 20px;
+                cursor: pointer;
+
+                &-cover{
+                    img{
+                        width: 300px;
+                        height: 400px;
+                        background-size: cover;
+                        object-fit: cover;
+                        &:hover{
+                            transform: scale(1.1);
+                            transition: all 0.5s ease;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
