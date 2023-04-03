@@ -39,7 +39,7 @@ import { BooksComponent } from './components/books/books.component';
     MatIconModule,
     MatFormFieldModule,
     MatSelectModule,
-    FormsModule
+    FormsModule,
   ],
   providers: [
     HttpService
