@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { APIResponse, Book } from 'src/app/models';
 import { HttpService } from 'src/app/service/http.service';
+import { MdbModalRef, MdbModalService } from 'mdb-angular-ui-kit/modal';
+import { ModalComponent } from '../modal/modal.component';
 
 @Component({
   selector: 'app-books',
@@ -9,9 +11,11 @@ import { HttpService } from 'src/app/service/http.service';
 })
 export class BooksComponent implements OnInit {
   public books: Array<Book> = [];
+  modalRef: MdbModalRef<ModalComponent> | null = null;
 
   constructor(
     private httpService: HttpService,
+    private modalService: MdbModalService
   ) { }
 
   ngOnInit(): void {
@@ -23,6 +27,11 @@ export class BooksComponent implements OnInit {
       this.books = response;
       console.log(response);
     });
+  }
+  openModal() {
+    this.modalRef = this.modalService.open(ModalComponent, {
+      modalClass: 'modal-dialog-centered'
+    })
   }
 
 }

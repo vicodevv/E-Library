@@ -8,9 +8,16 @@
         </div>
         <div class="books-container-books-book-info">
             <h3>{{ book.title }}</h3>
-            <p>{{ book.author }}</p>
-            <p>{{ book.publishedDate }}</p>
-            <p>{{ book.category }}</p>
+            <div class="books-container-books-book-info-text">
+                <div class="books-container-books-book-info-text-left">
+                    <p>{{ book.author }}</p>
+                    <p>{{ book.publishedDate }}</p>
+                    <p>{{ book.category }}</p>
+                </div>
+            <div class="books-container-books-book-info-text-right">
+                <button (click)="openModal()">+</button>
+            </div>
+        </div>
         </div>
     </div>
 </ng-container>

@@ -18,6 +18,8 @@ import { SignInComponent } from './components/sign-in/sign-in.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { HttpService } from './service/http.service';
 import { BooksComponent } from './components/books/books.component';
+import { ModalComponent } from './components/modal/modal.component';
+import { MdbModalService } from 'mdb-angular-ui-kit/modal';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,8 @@ import { BooksComponent } from './components/books/books.component';
     HomeComponent,
     SignInComponent,
     SignUpComponent,
-    BooksComponent
+    BooksComponent,
+    ModalComponent
   ],
   imports: [
     BrowserModule,
@@ -42,7 +45,8 @@ import { BooksComponent } from './components/books/books.component';
     FormsModule,
   ],
   providers: [
-    HttpService
+    HttpService,
+    MdbModalService
   ],
   bootstrap: [AppComponent]
 })
