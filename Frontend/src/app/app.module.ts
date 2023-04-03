@@ -17,6 +17,7 @@ import { HomeComponent } from './components/home/home.component';
 import { SignInComponent } from './components/sign-in/sign-in.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { HttpService } from './service/http.service';
+import { BooksComponent } from './components/books/books.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { HttpService } from './service/http.service';
     FooterComponent,
     HomeComponent,
     SignInComponent,
-    SignUpComponent
+    SignUpComponent,
+    BooksComponent
   ],
   imports: [
     BrowserModule,
