@@ -7,9 +7,10 @@
         &-books{
             display: flex;
             flex-direction: row;
+            max-width: 1400px;
+            overflow-wrap: normal;
             padding: 30px;
-            overflow-x: auto;
-
+            overflow:auto;
             &-book{
                 display: flex;
                 flex-direction: column;
