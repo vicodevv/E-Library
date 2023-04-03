@@ -1,5 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
+import { result } from 'lodash';
 import { Subscription } from 'rxjs';
 import { APIResponse, Book } from 'src/app/models';
 import { HttpService } from 'src/app/service/http.service';
@@ -22,9 +23,9 @@ export class HomeComponent implements OnInit {
   }
 
   getBooks() {
-    this.httpService.getAllBooks().subscribe((response: APIResponse<Book>) => {
-      this.books = response.results;
-      console.log(this.books);
+    this.httpService.getAllBooks().subscribe((response: any) => {
+      this.books = response;
+      console.log(response);
     });
   }
 }
