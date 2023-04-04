@@ -21,7 +21,7 @@ import com.example.library.service.UserService;
 import lombok.Data;
 
 @RestController
-@RequestMapping(path = "api/users")
+@RequestMapping()
 public class UserController {
 
     private final UserService userService;
@@ -32,27 +32,27 @@ public class UserController {
     }
 
     //Get all users Controller
-    @GetMapping()
+    @GetMapping(path = "api/users")
     public ResponseEntity<List<User>> getUsers() {
         return ResponseEntity.ok().body(userService.getUsers());
     }
 
     //Add user Controller
-    @PostMapping()
+    @PostMapping(path = "api/users")
     public ResponseEntity<User>registerNewUser(@RequestBody User user) {
         URI uri = URI.create(ServletUriComponentsBuilder.fromCurrentContextPath().path("api/users").toUriString());
         return ResponseEntity.created(uri).body(userService.addNewUser(user));
     }
 
     //Add role Controller
-    @PostMapping(path = "/role")
+    @PostMapping(path = "api/role")
     public ResponseEntity<Role> addNewRole(@RequestBody Role role) {
         URI uri = URI.create(ServletUriComponentsBuilder.fromCurrentContextPath().path("api/users/role").toUriString());
         return ResponseEntity.created(uri).body(userService.addNewRole(role));
     }
 
     //Add role to user Controller
-    @PostMapping(path = "/role/addroletouser")
+    @PostMapping(path = "api/role/addroletouser")
     public ResponseEntity<?> addRoleToUser(@RequestBody RoleToUserForm form) {
         userService.addRoleToUser(form.getEmail(), form.getRoleName());
         return ResponseEntity.ok().build();
@@ -64,11 +64,9 @@ public class UserController {
         public void deleteUser(@PathVariable("userId") Long userId){
             userService.deleteUser(userId);   
     }
-
-    @Data
+}
+@Data
     class RoleToUserForm{
         private String email;
         private String roleName;
     }
-    
-}
