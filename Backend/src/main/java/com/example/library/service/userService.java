@@ -44,18 +44,18 @@ public class UserService {
     }
 
     //Add role Service
-    public void addNewRole(Role role){
+    public Role addNewRole(Role role){
         Optional<Role> roleOptional = roleRepository.findByName(role.getName());
         if (roleOptional.isPresent()) {
             throw new IllegalStateException("Role already exists");
         }
-        roleRepository.save(role);
+        return roleRepository.save(role);
     }
 
     //Add role to user Service
-    public void addRoleToUser(Long userId, Long roleId) {
-        User user = userRepository.findById(userId).orElseThrow(() -> new IllegalStateException("User with id " + userId + " does not exist"));
-        Role role = roleRepository.findById(roleId).orElseThrow(() -> new IllegalStateException("Role with id " + roleId + " does not exist"));
+    public void addRoleToUser(String email, String roleName) {
+        User user = userRepository.findUserByEmail(email).orElseThrow(() -> new IllegalStateException("User with id " + email + " does not exist"));
+        Role role = roleRepository.findByName(roleName).orElseThrow(() -> new IllegalStateException("Role with id " + roleName + " does not exist"));
         user.getRoles().add(role);
         userRepository.save(user);
     }

@@ -14,8 +14,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import com.example.library.Role;
 import com.example.library.User;
 import com.example.library.service.UserService;
+
+import lombok.Data;
 
 @RestController
 @RequestMapping(path = "api/users")
@@ -41,10 +44,31 @@ public class UserController {
         return ResponseEntity.created(uri).body(userService.addNewUser(user));
     }
 
+    //Add role Controller
+    @PostMapping(path = "/role")
+    public ResponseEntity<Role> addNewRole(@RequestBody Role role) {
+        URI uri = URI.create(ServletUriComponentsBuilder.fromCurrentContextPath().path("api/users/role").toUriString());
+        return ResponseEntity.created(uri).body(userService.addNewRole(role));
+    }
+
+    //Add role to user Controller
+    @PostMapping(path = "/role/addroletouser")
+    public ResponseEntity<?> addRoleToUser(@RequestBody RoleToUserForm form) {
+        userService.addRoleToUser(form.getEmail(), form.getRoleName());
+        return ResponseEntity.ok().build();
+    }
+
+
     //Delete user Controller
     @DeleteMapping(path = "{userId}")
         public void deleteUser(@PathVariable("userId") Long userId){
             userService.deleteUser(userId);   
+    }
+
+    @Data
+    class RoleToUserForm{
+        private String email;
+        private String roleName;
     }
     
 }
