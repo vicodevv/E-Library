@@ -14,6 +14,7 @@ import com.example.library.Repository.RoleRepository;
 
 @Service
 public class UserService {
+    public static final Object addNewUser = null;
     private final UserRepository userRepository;
     private final RoleRepository roleRepository;
     
@@ -34,12 +35,12 @@ public class UserService {
     }
     
     //Add user Service
-    public void addNewUser(User user) {
+    public User addNewUser(User user) {
         Optional<User> userOptional = userRepository.findUserByEmail(user.getEmail());
         if (userOptional.isPresent()) {
             throw new IllegalStateException("User already exists");
         }
-        userRepository.save(user);
+        return userRepository.save(user);
     }
 
     //Add role Service
