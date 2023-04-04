@@ -1,49 +1,55 @@
 package com.example.library;
 
+import java.util.ArrayList;
+import java.util.Collection;
+
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.SequenceGenerator;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 @Table
 public class User {
     @Id
-    @SequenceGenerator(
-            name = "book_sequence",
-            sequenceName = "book_sequence",
-            allocationSize = 1
-    )
-    @GeneratedValue(
-            strategy = GenerationType.SEQUENCE,
-            generator = "book_sequence"
-    )
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long userId;
     private String firstName;
     private String lastName;
     private String email;
     private Long phoneNumber;
     private String address;
+    private String password;
+    @ManyToMany(fetch = FetchType.EAGER)
+    private Collection<Role> roleS = new ArrayList<>();
 
-    public User(){
-    }
-    public User(Long userId, String firstName, String lastName, String email, Long phoneNumber, String address){
+
+    public User(Long userId, String firstName, String lastName, String email, Long phoneNumber, String address, String password){
         this.userId = userId;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.phoneNumber = phoneNumber;
         this.address = address;
+        this.password = password;
     }
 
-    public User(String firstName, String lastName, String email, Long phoneNumber, String address){
+    public User(String firstName, String lastName, String email, Long phoneNumber, String address, String password){
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.phoneNumber = phoneNumber;
         this.address = address;
+        this.password = password;
     }
 
     // Getters and Setters for userId
@@ -93,5 +99,13 @@ public class User {
     public void setAddress(String address) {
         this.address = address;
     }
+
+    // Getters and Setters for password
+    public String getPassword() {
+        return password;
+    }
+    public void setPassword(String password) {
+        this.password = password;
+    } 
 }
 
