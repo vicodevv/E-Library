@@ -13,5 +13,8 @@ export class SignInComponent {
   homePage(): void {
     this.router.navigateByUrl('');
   }
+  signUpPage(): void {
+    this.router.navigateByUrl('sign-up');
+  }
 
 }
