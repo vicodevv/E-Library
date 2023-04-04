@@ -1,8 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
+import { AppRoutingModule } from './customer-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { GaugeModule } from 'angular-gauge';
@@ -16,21 +15,22 @@ import { FooterComponent } from './components/footer/footer.component';
 import { HomeComponent } from './components/home/home.component';
 import { SignInComponent } from './components/sign-in/sign-in.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
-import { HttpService } from './service/http.service';
+import { HttpService } from '../service/http.service';
 import { BooksComponent } from './components/books/books.component';
 import { ModalComponent } from './components/modal/modal.component';
 import { MdbModalService } from 'mdb-angular-ui-kit/modal';
+import { CustomerComponent } from './customer.component';
 
 @NgModule({
   declarations: [
-    AppComponent,
+    CustomerComponent,
     HeaderComponent,
     FooterComponent,
     HomeComponent,
     SignInComponent,
     SignUpComponent,
     BooksComponent,
-    ModalComponent
+    ModalComponent,
   ],
   imports: [
     BrowserModule,
@@ -48,6 +48,6 @@ import { MdbModalService } from 'mdb-angular-ui-kit/modal';
     HttpService,
     MdbModalService
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [CustomerComponent]
 })
-export class AppModule { }
+export class CustomerModule { }
