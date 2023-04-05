@@ -26,6 +26,7 @@ public class User {
     private Long userId;
     private String firstName;
     private String lastName;
+    private String userName;
     private String email;
     private Long phoneNumber;
     private String address;
@@ -34,19 +35,21 @@ public class User {
     private Collection<Role> roles = new ArrayList<>();
 
 
-    public User(Long userId, String firstName, String lastName, String email, Long phoneNumber, String address, String password){
+    public User(Long userId, String firstName, String lastName, String userName, String email, Long phoneNumber, String address, String password){
         this.userId = userId;
         this.firstName = firstName;
         this.lastName = lastName;
+        this.userName = userName;
         this.email = email;
         this.phoneNumber = phoneNumber;
         this.address = address;
         this.password = password;
     }
 
-    public User(String firstName, String lastName, String email, Long phoneNumber, String address, String password){
+    public User(String firstName, String lastName, String userName, String email, Long phoneNumber, String address, String password){
         this.firstName = firstName;
         this.lastName = lastName;
+        this.userName = userName;
         this.email = email;
         this.phoneNumber = phoneNumber;
         this.address = address;
@@ -75,6 +78,14 @@ public class User {
     }
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+    //Getters and Setters for userName
+    public String getUserName() {
+        return userName;
+    }
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
     // Getters and Setters for email

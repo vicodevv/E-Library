@@ -1,9 +1,14 @@
 package com.example.library.service;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import com.example.library.Role;
@@ -24,6 +29,19 @@ public class UserService {
         this.roleRepository = roleRepository;
     }
 
+    public UserDetails loadUserByUsername(String userName) throws UsernameNotFoundException{
+        Optional<User> user = userRepository.findByUserName(userName);
+        if (user == null) {
+            throw new UsernameNotFoundException("User not found");
+        } 
+        Collection <SimpleGrantedAuthority> authorities = new ArrayList<>();
+        user.getRoles().forEach(role -> {
+            authorities.add(new SimpleGrantedAuthority(role.getName()));
+        });
+        return new org.springframework.security.core.userdetails.User(user.getUserName(), user.getPassword(), authorities);
+
+    }
+
     //Get all users Service
     public List<User> getUsers() {
         return userRepository.findAll();
@@ -36,7 +54,7 @@ public class UserService {
     
     //Add user Service
     public User addNewUser(User user) {
-        Optional<User> userOptional = userRepository.findUserByEmail(user.getEmail());
+        Optional<User> userOptional = userRepository.findByUserName(user.getUserName());
         if (userOptional.isPresent()) {
             throw new IllegalStateException("User already exists");
         }
@@ -53,8 +71,8 @@ public class UserService {
     }
 
     //Add role to user Service
-    public void addRoleToUser(String email, String roleName) {
-        User user = userRepository.findUserByEmail(email).orElseThrow(() -> new IllegalStateException("User with id " + email + " does not exist"));
+    public void addRoleToUser(String userName, String roleName) {
+        User user = userRepository.findByUserName(userName).orElseThrow(() -> new IllegalStateException("User with id " + userName + " does not exist"));
         Role role = roleRepository.findByName(roleName).orElseThrow(() -> new IllegalStateException("Role with id " + roleName + " does not exist"));
         user.getRoles().add(role);
         userRepository.save(user);
@@ -69,5 +87,4 @@ public class UserService {
         }
         userRepository.deleteById(userId);
     }
-    
 }
