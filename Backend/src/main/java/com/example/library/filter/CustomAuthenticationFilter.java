@@ -1,6 +1,9 @@
 package com.example.library.filter;
 
+import java.io.IOException;
+
 import javax.servlet.FilterChain;
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -34,7 +37,7 @@ public class CustomAuthenticationFilter extends UsernamePasswordAuthenticationFi
 
     @Override
     protected void successfulAuthentication(HttpServletRequest request, HttpServletResponse response, FilterChain chain,
-            Authentication authResult) throws java.io.IOException, javax.servlet.ServletException {
+            Authentication authResult) throws IOException, ServletException {
         // TODO Auto-generated method stub
         super.successfulAuthentication(request, response, chain, authResult);
     }
