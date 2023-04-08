@@ -35,10 +35,10 @@ public class UserService {
             throw new UsernameNotFoundException("User not found");
         } 
         Collection <SimpleGrantedAuthority> authorities = new ArrayList<>();
-        user.getRoles().forEach(role -> {
+        user.get().getRoles().forEach(role -> {
             authorities.add(new SimpleGrantedAuthority(role.getName()));
         });
-        return new org.springframework.security.core.userdetails.User(user.getUserName(), user.getPassword(), authorities);
+       return new org.springframework.security.core.userdetails.User(user.get().getUserName(), user.get().getPassword(), authorities);
 
     }
 
