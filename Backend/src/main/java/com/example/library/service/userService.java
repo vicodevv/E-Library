@@ -64,7 +64,7 @@ public class UserService {
             throw new IllegalStateException("User already exists");
         }
         
-        //user.setPassword(passwordEncoder.encode(user.getPassword()));
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
         log.info("Here");
         return userRepository.save(user);
     }
