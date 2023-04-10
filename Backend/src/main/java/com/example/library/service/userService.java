@@ -16,11 +16,10 @@ import com.example.library.Role;
 import com.example.library.User;
 import com.example.library.Repository.UserRepository;
 
-import lombok.extern.slf4j.Slf4j;
+//import lombok.extern.slf4j.Slf4j;
 
 import com.example.library.Repository.RoleRepository;
 
-@Slf4j
 @Service
 public class UserService {
     private final UserRepository userRepository;
@@ -65,7 +64,6 @@ public class UserService {
         }
         
         user.setPassword(passwordEncoder.encode(user.getPassword()));
-        log.info("Here");
         return userRepository.save(user);
     }
 
