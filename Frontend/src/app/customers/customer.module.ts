@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { AppRoutingModule } from './customer-routing.module';
+import { CustomerRoutingModule } from './customer-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { GaugeModule } from 'angular-gauge';
@@ -34,7 +34,7 @@ import { CustomerComponent } from './customer.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
+    CustomerRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
     GaugeModule.forRoot(),
