@@ -1,1 +1,19 @@
-<p>sign-up works!</p>
+<div class="signup-container">
+        <h1>Welcome</h1>
+        <p>Sign up to create your account</p>
+
+        <input type="text" placeholder="Email">
+        <input type="text" placeholder="First Name">
+        <input type="text" placeholder="Last Name">
+        <input type="text" placeholder="Phone Number">
+        <input type="text" placeholder="Address">
+        <input type="password" placeholder="Password">
+        <input type="password" placeholder="Confirm Password">
+
+        <div class="signup-container-new">
+            <p>Already have an account?
+                <a (click)="signInPage()">SignIn</a>
+            </p>
+        </div>  
+        <button (click)="homePage()" class="signup-button">Sign Up</button>
+</div>
