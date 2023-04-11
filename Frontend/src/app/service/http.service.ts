@@ -14,5 +14,7 @@ export class HttpService {
   public getAllBooks(){
     return this.http.get<APIResponse<Book>>(`${this.BASE_URL}/api/books`);
   }
-  
+  public addNewUser(user: any){
+    return this.http.post(`${this.BASE_URL}/api/users`, user);
   }
+}
