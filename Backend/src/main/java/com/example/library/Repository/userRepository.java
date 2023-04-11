@@ -11,7 +11,7 @@ import com.example.library.User;
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {
 
-    @Query("SELECT s FROM User s WHERE s.email = ?1")
-    Optional<User> findUserByEmail(String email);
+    @Query("SELECT s FROM User s WHERE s.userName = ?1")
+    Optional<User> findByUserName(String userName);
 }
 

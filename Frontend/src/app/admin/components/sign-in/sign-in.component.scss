@@ -1,0 +1,47 @@
+.signin{
+    &-container{
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        h1{
+            font-size: 50px;
+        }
+        p{
+            font-size: 15px;
+            margin-top: 10px;
+
+            a{
+                cursor:pointer;
+                font-size: 15px;
+                color: purple;
+            }
+        }
+
+        input{
+            width: 500px;
+            height: 50px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+            margin-top: 10px; 
+            outline: none;
+        }
+        &-new{
+            padding-right: 380px;
+        }
+        button{
+            width: 520px;
+            height: 50px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+            margin-top: 10px; 
+            background-color: #fff;
+            font-size: 20px;
+            font-weight: bold;
+            cursor: pointer;
+        }   
+    }
+}

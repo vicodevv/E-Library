@@ -3,13 +3,14 @@ package com.example.library;
 import java.util.ArrayList;
 import java.util.Collection;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToMany;
-import jakarta.persistence.Table;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Table;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -25,6 +26,7 @@ public class User {
     private Long userId;
     private String firstName;
     private String lastName;
+    private String userName;
     private String email;
     private Long phoneNumber;
     private String address;
@@ -33,19 +35,21 @@ public class User {
     private Collection<Role> roles = new ArrayList<>();
 
 
-    public User(Long userId, String firstName, String lastName, String email, Long phoneNumber, String address, String password){
+    public User(Long userId, String firstName, String lastName, String userName, String email, Long phoneNumber, String address, String password){
         this.userId = userId;
         this.firstName = firstName;
         this.lastName = lastName;
+        this.userName = userName;
         this.email = email;
         this.phoneNumber = phoneNumber;
         this.address = address;
         this.password = password;
     }
 
-    public User(String firstName, String lastName, String email, Long phoneNumber, String address, String password){
+    public User(String firstName, String lastName, String userName, String email, Long phoneNumber, String address, String password){
         this.firstName = firstName;
         this.lastName = lastName;
+        this.userName = userName;
         this.email = email;
         this.phoneNumber = phoneNumber;
         this.address = address;
@@ -74,6 +78,14 @@ public class User {
     }
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+    //Getters and Setters for userName
+    public String getUserName() {
+        return userName;
+    }
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
     // Getters and Setters for email
