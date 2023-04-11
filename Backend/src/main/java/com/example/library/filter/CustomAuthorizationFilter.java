@@ -3,6 +3,8 @@ package com.example.library.filter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
@@ -18,10 +20,15 @@ import com.auth0.jwt.JWT;
 import com.auth0.jwt.JWTVerifier;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.interfaces.DecodedJWT;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+import lombok.extern.slf4j.Slf4j;
 
 import static org.springframework.http.HttpHeaders.AUTHORIZATION;
 import static java.util.Arrays.stream;
+import static org.springframework.http.HttpStatus.FORBIDDEN;
 
+@Slf4j
 public class CustomAuthorizationFilter extends OncePerRequestFilter {
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
@@ -46,7 +53,14 @@ public class CustomAuthorizationFilter extends OncePerRequestFilter {
                     SecurityContextHolder.getContext().setAuthentication(authenticationToken);
                     filterChain.doFilter(request, response);
                 } catch (Exception exception) {
-                    // TODO: handle exception
+                    log.error("Error logging in: {}", exception.getMessage());
+                    response.setHeader("error", exception.getMessage());
+                    response.setStatus(FORBIDDEN.value());
+                    
+                    Map<String, String> error = new HashMap<>();
+                    error.put("access_token", exception.getMessage());
+                    response.setContentType("application/json");
+                    new ObjectMapper().writeValue(response.getOutputStream(), error);
                 }
                 
             }else{
