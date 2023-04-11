@@ -8,6 +8,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { HomeComponent } from './components/home/home.component';
 import { AdminComponent } from './admin.component';
 import { BooksComponent } from './components/books/books.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -20,6 +21,7 @@ import { BooksComponent } from './components/books/books.component';
     BooksComponent
   ],
   imports: [
+    HttpClientModule,
     BrowserModule,
     CommonModule,
     AdminRoutingModule

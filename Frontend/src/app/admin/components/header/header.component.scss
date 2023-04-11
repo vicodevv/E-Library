@@ -20,20 +20,7 @@
         &-menu{
             display: flex;
         }
-        &-menu-borrow{
-            button{
-                width: 150px;
-                height: 50px;
-                border: 1px solid #000;
-                border-radius: 5px;
-                padding: 10px;
-                background-color: #F2EBE3;
-                font-weight: bold;
-                cursor: pointer;
-                margin: 10px;
-            }
-        }
-        &-menu-return{
+        &-menu-add{
             button{
                 width: 150px;
                 height: 50px;

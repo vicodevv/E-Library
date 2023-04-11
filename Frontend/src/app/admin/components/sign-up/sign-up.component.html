@@ -1,4 +1,5 @@
 <div class="signup-container">
+    <div class="signup-container-left">
         <h1>Welcome</h1>
         <p>Sign up to create your account</p>
 
@@ -7,13 +8,17 @@
         <input type="text" placeholder="Last Name">
         <input type="text" placeholder="Phone Number">
         <input type="text" placeholder="Address">
+        <input type="text" placeholder="Username">
         <input type="password" placeholder="Password">
-        <input type="password" placeholder="Confirm Password">
 
-        <div class="signup-container-new">
-            <p>Already have an account?
-                <a (click)="signInPage()">SignIn</a>
-            </p>
-        </div>  
+        <p>Already have an account?
+            <a (click)="signInPage()">SignIn</a>
+        </p>
         <button (click)="homePage()" class="signup-button">Sign Up</button>
+    </div>
+    <div class="signup-container-right">
+        <img src="../../../../assets/library-books.jpg" alt="">
+        <h1>LIBRARY</h1>
+        <p>Get all your books in one place.</p>
+    </div>
 </div>

@@ -1,1 +1,38 @@
 <app-header></app-header>
+<div class="books-container">
+    <div class="books-container-books">
+        <ng-container *ngFor="let book of books">
+        <div class="books-container-books-book" >
+        <div class="books-container-books-book-cover">
+            <img src="{{ book.coverPage }}" alt="{{ book.title }}" />
+        </div>
+        <div class="books-container-books-book-info">
+            <h3>{{ book.title }}</h3>
+            <div class="books-container-books-book-info-text">
+                <div class="books-container-books-book-info-text-left">
+                    <div class="books-container-books-book-info-text-left-i">
+                        <p style="font-weight: 500;">Author: </p>
+                        <p> {{ book.author }}</p>
+                    </div>
+                    <div class="books-container-books-book-info-text-left-i">
+                        <p  style="font-weight: 500;">Published Date:</p>
+                        <p>{{ book.publishedDate }}</p>
+                    </div>
+                    <div class="books-container-books-book-info-text-left-i">
+                        <p  style="font-weight: 500;">Category:</p>
+                        <p>{{ book.category }}</p>
+                    </div>
+                    <div class="books-container-books-book-info-text-left-i">
+                        <p  style="font-weight: 500;">Available Quantity:</p>
+                        <p>{{ book.availableQuantity }}</p>
+                    </div>
+                    <div class="books-container-books-book-info-text-left-i">
+                        <p  style="font-weight: 500;">Total Quantity:</p>
+                        <p>{{ book.totalQuantity }}</p>
+                    </div>
+                </div>
+        </div>
+        </div>
+    </div>
+</ng-container>
+</div>
