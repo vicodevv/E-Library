@@ -56,6 +56,12 @@ public class UserServiceImplementation implements UserService, UserDetailsServic
         return userRepository.findAll();
     }
     
+    //Get user by username Service
+    @Override
+    public User getUser(String userName) {
+        return userRepository.findByUserName(userName).orElseThrow(() -> new IllegalStateException("User with id " + userName + " does not exist"));
+    }
+
     //Add user Service
     @Override
     public User addNewUser(User user) {
