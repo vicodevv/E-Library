@@ -2,46 +2,81 @@
     &-container{
         height: 100vh;
         display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        h1{
-            font-size: 50px;
-        }
-        p{
-            font-size: 15px;
-            margin-top: 10px;
+        flex-direction: row;
 
-            a{
-                cursor:pointer;
+        &-left{
+            height: 100vh;
+            width: 50%;
+            background-color: #fff;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding-left: 100px;
+            h1{
+                font-size: 50px;
+                font-weight: 500;
+            }
+            p{
                 font-size: 15px;
-                color: purple;
+                margin-top: 10px;
+
+                a{
+                    cursor:pointer;
+                    font-size: 15px;
+                    color: purple;
+                }
+            }
+
+            input{
+                width: 500px;
+                height: 50px;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+                padding: 10px;
+                margin-top: 10px; 
+                outline: none;
+            }
+
+            button{
+                width: 520px;
+                height: 50px;
+                border: 1px solid #F2EBE3;
+                border-radius: 5px;
+                padding: 10px;
+                margin-top: 10px; 
+                background-color: #F2EBE3;
+                font-size: 20px;
+                font-weight: bold;
+                cursor: pointer;
             }
         }
-
-        input{
-            width: 500px;
-            height: 50px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            padding: 10px;
-            margin-top: 10px; 
-            outline: none;
+        &-right{
+            height: 100vh;
+            width: 50%;
+            background-color: #F2EBE3;
+            
+            img{
+                object-fit: cover;
+                height: 100vh;
+                width: 100%;
+                position: relative;
+            }
+            h1{
+                position: absolute;
+                top: 45%;
+                left: 75%;
+                transform: translate(-50%, -50%);
+                font-size: 90px;
+                color: #fff;
+            }
+            p{
+                position: absolute;
+                top: 53%;
+                left: 75%;
+                transform: translate(-50%, -50%);
+                font-size: 20px;
+                color: #fff;
+            }
         }
-        &-new{
-            padding-right: 380px;
-        }
-        button{
-            width: 520px;
-            height: 50px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            padding: 10px;
-            margin-top: 10px; 
-            background-color: #fff;
-            font-size: 20px;
-            font-weight: bold;
-            cursor: pointer;
-        }   
     }
 }
