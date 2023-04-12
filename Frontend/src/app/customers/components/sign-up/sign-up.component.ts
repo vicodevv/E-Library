@@ -9,7 +9,7 @@ import { HttpService } from 'src/app/service/http.service';
   styleUrls: ['./sign-up.component.scss']
 })
 export class SignUpComponent implements OnInit {
-  //public loginError: string;
+  public loginError!: string;
   
   signupForm = new FormGroup({
     email: new FormControl('', [Validators.required, Validators.email]),
@@ -49,12 +49,10 @@ export class SignUpComponent implements OnInit {
         if(data.status === 200 && !data.body.ErrorCode){
             this.router.navigate(['/']);
         }else{
-            console.log(data.body.ErrorMessage);
+          this.loginError = data.body.message;
         }        
       },
-      (error) => {
-        console.log(error);
-      }
+      error => this.loginError = error
       )
     }    
   }
