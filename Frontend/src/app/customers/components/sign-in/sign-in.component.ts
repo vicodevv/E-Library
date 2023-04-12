@@ -14,6 +14,7 @@ export class SignInComponent implements OnInit {
     userName: new FormControl('', [Validators.required]),
     password: new FormControl('', [Validators.required])
   })
+  hide = true;
 
   public loginError!: string;
   
