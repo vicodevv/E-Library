@@ -26,7 +26,7 @@ export class SignInComponent implements OnInit {
 
   onSubmit(){  
     if(this.loginForm.valid){
-      this.httpService.login(this.loginForm.value)
+      this.httpService.SignIn(this.loginForm.value)
       .subscribe((data) => { console.log(data);
         if(data.status === 200 && !data.body.ErrorCode){
             this.router.navigate(['']);
