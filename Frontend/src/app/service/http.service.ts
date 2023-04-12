@@ -46,7 +46,7 @@ export class HttpService {
 
   // Sign up a new user
   public signUp(formData:any):Observable<HttpResponse<any>>{
-      return this.http.post<any>(this.BASE_URL+"api/users",formData,  { observe: 'response' })
+      return this.http.post<any>(`${this.BASE_URL}/api/users`,formData,  { observe: 'response' })
       .pipe(
         tap((resp: HttpResponse<any>) => {
           return resp;  
