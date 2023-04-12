@@ -29,7 +29,8 @@
                 <mat-error *ngIf="!signUpForm.controls.userName.valid">Please enter valid Username</mat-error>
             </mat-form-field>
             <mat-form-field>
-                <input matInput type="password" placeholder="Password" formControlName="password" required>
+                <input matInput type="password" placeholder="Password" [type]="hide ? 'password' : 'text'" formControlName="password" required>
+                <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                 <mat-error *ngIf="!signUpForm.controls.password.valid">Please enter valid password</mat-error>
             </mat-form-field>
             <p style="color:red" *ngIf="signUpError">{{signUpError}}</p>
@@ -37,7 +38,7 @@
         <p>Already have an account?
             <a (click)="signInPage()">SignIn</a>
         </p>
-        <button (click)="homePage()" class="signup-button">Sign Up</button>
+        <button class="signup-button">Sign Up</button>
     </form>
     </div>
     <div class="signup-container-right">
