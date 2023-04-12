@@ -26,30 +26,37 @@
                     color: purple;
                 }
             }
-            input{
-                width: 500px;
-                height: 50px;
-                border: 1px solid #ccc;
-                border-radius: 5px;
-                padding: 10px;
-                margin-top: 10px; 
-                outline: none;
-                font-size: 16px;
-            }
+            form{
+                display: flex;
+                flex-direction: column;
+                margin-top: 20px;
+                width: 70%;
+                
+                .matInput{
+                    width: 500px;
+                    height: 50px;
+                    border: 1px solid #ccc;
+                    border-radius: 5px;
+                    padding: 10px;
+                    margin-top: 10px; 
+                    outline: none;
+                    font-size: 16px;
+                }
 
-            button{
-                width: 520px;
-                height: 50px;
-                border: 1px solid #ccc;
-                border-radius: 5px;
-                padding: 10px;
-                margin-top: 10px; 
-                background-color: #F2EBE3;
-                font-size: 20px;
-                font-weight: bold;
-                cursor: pointer;
-            }
+                button{
+                    width: 470px;
+                    height: 50px;
+                    border: 1px solid #ccc;
+                    border-radius: 5px;
+                    padding: 10px;
+                    margin-top: 10px; 
+                    background-color: #F2EBE3;
+                    font-size: 20px;
+                    font-weight: bold;
+                    cursor: pointer;
+                }
         }
+    }
         &-right{
             height: 100vh;
             width: 50%;
