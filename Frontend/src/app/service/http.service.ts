@@ -27,7 +27,7 @@ export class HttpService {
 
   // Login a user
   public login(formData:any):Observable<HttpResponse<any>>{
-    return this.http.post<any>(this.BASE_URL+"login",formData,  { observe: 'response' })
+    return this.http.post<any>(`${this.BASE_URL}/api/login`,formData,  { observe: 'response' })
     .pipe(
       tap((resp: HttpResponse<any>) => {
         if(resp.body.token){

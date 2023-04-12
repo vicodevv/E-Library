@@ -11,7 +11,7 @@ import { HttpService } from 'src/app/service/http.service';
 export class SignInComponent implements OnInit {
 
   loginForm = new FormGroup({
-    email: new FormControl('', [Validators.required, Validators.email]),
+    userName: new FormControl('', [Validators.required]),
     password: new FormControl('', [Validators.required])
   })
 
