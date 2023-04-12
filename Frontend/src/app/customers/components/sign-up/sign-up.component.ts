@@ -9,15 +9,15 @@ import { HttpService } from 'src/app/auth/api.service';
   styleUrls: ['./sign-up.component.scss']
 })
 export class SignUpComponent implements OnInit {
-  public loginError!: string;
+  public signUpError!: string;
   
-  signupForm = new FormGroup({
+  signUpForm = new FormGroup({
     email: new FormControl('', [Validators.required, Validators.email]),
     firstName: new FormControl('', [Validators.required]),
     lastName: new FormControl('', [Validators.required]),
     phoneNumber: new FormControl('', [Validators.required, Validators.minLength(10)]),
     address: new FormControl('', [Validators.required]),
-    username: new FormControl('', [Validators.required]),
+    userName: new FormControl('', [Validators.required]),
     password: new FormControl('', [Validators.required])
   })
 
@@ -36,23 +36,17 @@ export class SignUpComponent implements OnInit {
     this.router.navigateByUrl('sign-in');
   }
 
-  addNewUser() {
-    this.httpService.addNewUser({}).subscribe((response: any) => {
-      console.log(response);
-    });
-  }
-
   onSubmit(){  
-    if(this.signupForm.valid){
-      this.httpService.signUp(this.signupForm.value)
+    if(this.signUpForm.valid){
+      this.httpService.signUp(this.signUpForm.value)
       .subscribe((data) => {
         if(data.status === 200 && !data.body.ErrorCode){
-            this.router.navigate(['/']);
+            this.router.navigate(['']);
         }else{
-          this.loginError = data.body.message;
+          this.signUpError = data.body.message;
         }        
       },
-      error => this.loginError = error
+      error => this.signUpError = error
       )
     }    
   }
