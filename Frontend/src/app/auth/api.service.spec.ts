@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 
-import { HttpService } from './http.service';
+import { HttpService } from './api.service';
 
 describe('ServiceService', () => {
   let service: HttpService;
