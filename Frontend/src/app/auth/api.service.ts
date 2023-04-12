@@ -16,14 +16,10 @@ export class HttpService {
 
   constructor(private http: HttpClient,  private cookieService: CookieService) { }
 
+  // Get all books
   public getAllBooks(){
     return this.http.get<APIResponse<Book>>(`${this.BASE_URL}/api/books`);
   }
-  public addNewUser(user: any){
-    return this.http.post(`${this.BASE_URL}/api/users`, user);
-  }
-
-  
 
   // Login a user
   public SignIn(formData:any):Observable<HttpResponse<any>>{
