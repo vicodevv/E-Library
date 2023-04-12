@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { APIResponse, Book } from 'src/app/models';
-import { HttpService } from 'src/app/service/http.service';
+import { HttpService } from 'src/app/auth/api.service';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
