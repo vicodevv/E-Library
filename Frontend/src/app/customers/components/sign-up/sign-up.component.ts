@@ -18,9 +18,10 @@ export class SignUpComponent implements OnInit {
     phoneNumber: new FormControl('', [Validators.required, Validators.minLength(10)]),
     address: new FormControl('', [Validators.required]),
     userName: new FormControl('', [Validators.required]),
-    password: new FormControl('', [Validators.required])
+    password: new FormControl('', [Validators.required, Validators.minLength(6)])
   })
-
+  hide = true;
+  
   constructor(
     private router: Router,
     private httpService: HttpService,) {}
