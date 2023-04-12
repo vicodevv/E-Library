@@ -15,12 +15,7 @@ export class ApiInterceptor implements HttpInterceptor {
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     request = request.clone({
-      setHeaders: {
-        'x-auth': this.cookieService.get('currentUser'),
-        'Cache-Control': 'no-cache',
-        'Pragma': 'no-cache',
-        'Expires': 'Sat, 01 Jan 2000 00:00:00 GMT'
-      }
+      headers: request.headers.set('X-Requested-With', 'XMLHttpRequest')
     });    
     return next.handle(request);
   }
