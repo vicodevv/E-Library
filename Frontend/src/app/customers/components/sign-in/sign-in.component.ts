@@ -29,7 +29,7 @@ export class SignInComponent implements OnInit {
       this.httpService.login(this.loginForm.value)
       .subscribe((data) => { console.log(data);
         if(data.status === 200 && !data.body.ErrorCode){
-            this.router.navigate(['/']);
+            this.router.navigate(['']);
         }else{
           this.loginError = data.body.message;
         }        
