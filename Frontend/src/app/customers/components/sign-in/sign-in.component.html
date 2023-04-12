@@ -13,7 +13,7 @@
                 <input matInput type="password" placeholder="Password" formControlName="password" required>
                 <mat-error *ngIf="!loginForm.controls.password.valid">Please enter valid password</mat-error>
             </mat-form-field>
-            <p *ngIf="loginError">{{loginError}}</p>
+            <p style="color:red" *ngIf="loginError">{{loginError}}</p>
             <p>New User?
                 <a (click)="signUpPage()">SignUp</a>
             </p>
