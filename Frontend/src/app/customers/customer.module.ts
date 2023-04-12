@@ -22,7 +22,7 @@ import { ModalComponent } from './components/modal/modal.component';
 import { MdbModalService } from 'mdb-angular-ui-kit/modal';
 import { CustomerComponent } from './customer.component';
 import { CookieService } from 'ngx-cookie-service';
-import { ApiInterceptor } from '../service/api.interceptor';
+import { ApiInterceptor } from '../auth/api.interceptor';
 
 @NgModule({
   declarations: [
