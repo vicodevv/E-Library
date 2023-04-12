@@ -4,15 +4,16 @@
         <p>Login to your account</p>
 
         <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" >
-            <p *ngIf="loginError">{{loginError}}</p>
+           
             <mat-form-field>
-                <input matInput type="text" placeholder="userName" formControlName="userName" required>
+                <input matInput type="text" placeholder="Username" formControlName="userName" required>
                 <mat-error *ngIf="!loginForm.controls.userName.valid">Please enter valid Username</mat-error>
             </mat-form-field>
             <mat-form-field>
                 <input matInput type="password" placeholder="Password" formControlName="password" required>
                 <mat-error *ngIf="!loginForm.controls.password.valid">Please enter valid password</mat-error>
             </mat-form-field>
+            <p *ngIf="loginError">{{loginError}}</p>
             <p>New User?
                 <a (click)="signUpPage()">SignUp</a>
             </p>
