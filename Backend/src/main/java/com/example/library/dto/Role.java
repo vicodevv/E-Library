@@ -1,4 +1,4 @@
-package com.example.library;
+package com.example.library.dto;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

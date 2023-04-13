@@ -1,4 +1,4 @@
-package com.example.library;
+package com.example.library.dto;
 
 import java.util.ArrayList;
 import java.util.Collection;
