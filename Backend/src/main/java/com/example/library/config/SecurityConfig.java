@@ -46,8 +46,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
         customAuthenticationFilter.setFilterProcessesUrl("/api/login");
         http.csrf().disable();
         http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
-        http.authorizeRequests().antMatchers("/api/login", "/api/token/refresh/**").permitAll().and()
-        .cors().configurationSource(configurationSource());
+        http.authorizeRequests().antMatchers("/api/login", "/api/token/refresh/**").permitAll();
         http.authorizeRequests().antMatchers(HttpMethod.POST, "/api/users/**").permitAll();
         http.authorizeRequests().antMatchers(HttpMethod.POST, "/api/role/**").permitAll();
         http.authorizeRequests().antMatchers(HttpMethod.GET, "/api/books/**").permitAll();
@@ -76,15 +75,4 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
         source.registerCorsConfiguration("/**", config);
         return new CorsFilter(source);
     }
-    private CorsConfigurationSource configurationSource() {
-        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-        CorsConfiguration config = new CorsConfiguration();
-        config.addAllowedOrigin("*");
-        config.setAllowCredentials(true);
-        config.addAllowedHeader("X-Requested-With");
-        config.addAllowedHeader("Content-Type");
-        config.addAllowedMethod(HttpMethod.POST);
-        source.registerCorsConfiguration("/logout", config);
-        return source;
-      }
 }
