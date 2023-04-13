@@ -15,9 +15,9 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import com.example.library.Role;
-import com.example.library.User;
 import com.example.library.Repository.UserRepository;
+import com.example.library.dto.Role;
+import com.example.library.dto.User;
 
 //import lombok.extern.slf4j.Slf4j;
 
