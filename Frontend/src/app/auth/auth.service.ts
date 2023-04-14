@@ -24,7 +24,7 @@ export class HttpService {
 
   // Get all books
   public getAllBooks(){
-    return this.http.get<APIResponse<Book>>(`${this.BASE_URL}/api/books`);
+    return this.http.get<APIResponse<Book>>( this.BASE_URL + '/api/books', httpOptions);
   }
 
   // Login a user
