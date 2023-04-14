@@ -40,11 +40,11 @@ export class SignInComponent implements OnInit {
 
     this.httpService.login(userName, password).subscribe(
       data => {
-        //this.tokenStorage.saveToken(data.accessToken);
+        this.tokenStorage.saveToken(data.access_token);
         this.tokenStorage.saveUser(data);
+        console.log(data);
         this.isLoginFailed = false;
         this.isLoggedIn = true;
-        //this.roles = this.tokenStorage.getUser().roles;
         this.router.navigateByUrl('');
       },
       err => {
