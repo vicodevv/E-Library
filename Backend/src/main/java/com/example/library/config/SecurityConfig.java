@@ -14,11 +14,13 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.CorsFilter;
 
 import com.example.library.filter.CustomAuthenticationFilter;
+import com.example.library.filter.CustomAuthorizationFilter;
 import com.example.library.filter.ExceptionHandlerFilter;
 import com.example.library.filter.JWTAuthorizationFilter;
 

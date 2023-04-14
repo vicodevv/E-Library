@@ -2,6 +2,8 @@ package com.example.library.filter;
 
 import java.io.IOException;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
@@ -52,8 +54,20 @@ public class CustomAuthenticationFilter extends UsernamePasswordAuthenticationFi
                 .withExpiresAt(new Date(System.currentTimeMillis() + SecurityConstants.TOKEN_EXPIRATION))
                 .sign(Algorithm.HMAC512(SecurityConstants.SECRET_KEY));
 
-        response.addHeader("Access-Control-Expose-Headers", "Authorization");
-        response.addHeader(SecurityConstants.AUTHORIZATION, SecurityConstants.BEARER + token);
+                // String access_token = JWT.create()
+                // .withSubject(authentication.getName())
+                // .withExpiresAt(new Date(System.currentTimeMillis() + SecurityConstants.TOKEN_EXPIRATION))
+                // .sign(Algorithm.HMAC512(SecurityConstants.SECRET_KEY));
+
+                // String refresh_token = JWT.create()
+                // .withSubject(authentication.getName())
+                // .withExpiresAt(new Date(System.currentTimeMillis() + SecurityConstants.TOKEN_EXPIRATION))
+                // .sign(Algorithm.HMAC512(SecurityConstants.SECRET_KEY));
+
+                Map<String, String> tokens = new HashMap<>();
+                tokens.put("access_token", token);
+                response.setContentType("application/json");
+                new ObjectMapper().writeValue(response.getOutputStream(), tokens);
     }
 
     @Override
