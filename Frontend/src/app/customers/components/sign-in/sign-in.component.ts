@@ -37,7 +37,6 @@ export class SignInComponent implements OnInit {
 
   onSubmit(): void {
     const { userName, password } = this.loginForm;
-    console.log(userName, password);
 
     this.httpService.login(userName, password).subscribe(
       data => {
