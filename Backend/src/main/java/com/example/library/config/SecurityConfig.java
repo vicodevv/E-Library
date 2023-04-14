@@ -1,8 +1,6 @@
 package com.example.library.config;
 
-import java.util.Arrays;
 import java.util.Collections;
-
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -16,14 +14,13 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.web.cors.CorsConfiguration;
-import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.CorsFilter;
 
 import com.example.library.filter.CustomAuthenticationFilter;
-import com.example.library.filter.CustomAuthorizationFilter;
+import com.example.library.filter.ExceptionHandlerFilter;
+import com.example.library.filter.JWTAuthorizationFilter;
 
 import lombok.RequiredArgsConstructor;
 
@@ -46,15 +43,16 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
         customAuthenticationFilter.setFilterProcessesUrl("/api/login");
         http.cors();
         http.csrf().disable();
-        http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
         http.authorizeRequests().antMatchers("/api/login", "/api/token/refresh/**").permitAll();
         http.authorizeRequests().antMatchers(HttpMethod.POST, "/api/users/**").permitAll();
         http.authorizeRequests().antMatchers(HttpMethod.POST, "/api/role/**").permitAll();
         http.authorizeRequests().antMatchers(HttpMethod.GET, "/api/books/**").permitAll();
         http.authorizeRequests().antMatchers(HttpMethod.POST, "/api/books/**").permitAll();
         http.authorizeRequests().anyRequest().authenticated();
+        http.addFilterBefore(new ExceptionHandlerFilter(), CustomAuthenticationFilter.class);
         http.addFilter(customAuthenticationFilter);
-        http.addFilterBefore(new CustomAuthorizationFilter(), UsernamePasswordAuthenticationFilter.class);
+        http.addFilterAfter(new JWTAuthorizationFilter(), CustomAuthenticationFilter.class);
+        http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
     }
       
     @Bean
