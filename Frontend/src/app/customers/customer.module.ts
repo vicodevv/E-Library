@@ -16,13 +16,13 @@ import { FooterComponent } from './components/footer/footer.component';
 import { HomeComponent } from './components/home/home.component';
 import { SignInComponent } from './components/sign-in/sign-in.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
-import { HttpService } from '../auth/api.service';
+import { HttpService } from '../auth/auth.service';
 import { BooksComponent } from './components/books/books.component';
 import { ModalComponent } from './components/modal/modal.component';
 import { MdbModalService } from 'mdb-angular-ui-kit/modal';
 import { CustomerComponent } from './customer.component';
 import { CookieService } from 'ngx-cookie-service';
-import { ApiInterceptor } from '../auth/api.interceptor';
+import { AuthInterceptor } from '../auth/auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -54,7 +54,7 @@ import { ApiInterceptor } from '../auth/api.interceptor';
     MdbModalService,
     CookieService, {
       provide: HTTP_INTERCEPTORS,
-      useClass: ApiInterceptor,
+      useClass: AuthInterceptor,
       multi: true
   },
   ],

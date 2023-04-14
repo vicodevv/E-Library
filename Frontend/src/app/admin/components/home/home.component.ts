@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Book } from 'src/app/models';
-import { HttpService } from 'src/app/auth/api.service';
+import { HttpService } from 'src/app/auth/auth.service';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
