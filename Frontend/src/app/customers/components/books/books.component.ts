@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { APIResponse, Book } from 'src/app/models';
-import { HttpService } from 'src/app/auth/api.service';
+import { HttpService } from 'src/app/auth/auth.service';
 import { MdbModalRef, MdbModalService } from 'mdb-angular-ui-kit/modal';
 import { ModalComponent } from '../modal/modal.component';
 

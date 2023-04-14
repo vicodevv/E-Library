@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { HttpService } from 'src/app/auth/api.service';
+import { HttpService } from 'src/app/auth/auth.service';
 
 @Component({
   selector: 'app-sign-up',
@@ -38,18 +38,7 @@ export class SignUpComponent implements OnInit {
   }
 
   onSubmit(){  
-    if(this.signUpForm.valid){
-      this.httpService.signUp(this.signUpForm.value)
-      .subscribe((data) => {
-        if(data.status === 200 && !data.body.ErrorCode){
-            this.router.navigate(['']);
-        }else{
-          this.signUpError = data.body.message;
-        }        
-      },
-      error => this.signUpError = error
-      )
-    }    
+ 
   }
 
 }
