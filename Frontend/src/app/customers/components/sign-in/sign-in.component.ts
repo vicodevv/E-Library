@@ -17,7 +17,7 @@ export class SignInComponent implements OnInit {
   });
   isLoggedIn = false;
   isLoginFailed = false;
-  errorMessage = '';
+  errorMessage = 'Incorrect Username or Password';
   roles: string[] = [];
   hide = true;
 
@@ -41,13 +41,12 @@ export class SignInComponent implements OnInit {
 
     this.httpService.login(userName, password).subscribe(
       data => {
-        this.tokenStorage.saveToken(data.accessToken);
+        //this.tokenStorage.saveToken(data.accessToken);
         this.tokenStorage.saveUser(data);
-
         this.isLoginFailed = false;
         this.isLoggedIn = true;
-        this.roles = this.tokenStorage.getUser().roles;
-        this.reloadPage();
+        //this.roles = this.tokenStorage.getUser().roles;
+        this.router.navigateByUrl('');
       },
       err => {
         this.errorMessage = err.error.message;
