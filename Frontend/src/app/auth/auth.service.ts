@@ -32,15 +32,22 @@ export class HttpService {
     return this.http.post(AUTH_API + 'login', {
       userName,
       password
-    }, httpOptions).pipe(
-      map((user: any) => {
-        // store user details and jwt token in local storage to keep user logged in between page refreshes
-        localStorage.setItem('user', JSON.stringify(user));
-        return user;
-      }),
-      catchError(this.handleError)
-    );
+    }, httpOptions);
   }
+
+  // Register a user
+  register(email: string,firstName: string, lastName: string, phoneNumber: number, address: string, userName: string, password: string): Observable<any> {
+    return this.http.post(AUTH_API + 'users', {
+      email,
+      firstName,
+      lastName,
+      phoneNumber,
+      address,
+      userName,
+      password
+    }, httpOptions);
+  }
+
 
    // Handle Http operation that failed.
    private handleError(error: HttpErrorResponse) {

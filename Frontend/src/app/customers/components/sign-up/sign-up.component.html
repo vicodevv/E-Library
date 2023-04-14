@@ -5,31 +5,31 @@
         <form [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
 
             <mat-form-field>
-                <input matInput type="text" placeholder="Email" formControlName="email" required>
+                <input matInput type="text" placeholder="Email" formControlName="email" [(ngModel)]="signUpForm.email" required>
                 <mat-error *ngIf="!signUpForm.controls.email.valid">Please enter valid Email</mat-error>
             </mat-form-field>
             <mat-form-field>
-                <input matInput type="text" placeholder="First Name" formControlName="firstName" required>
+                <input matInput type="text" placeholder="First Name" formControlName="firstName" [(ngModel)]="signUpForm.firstName" required>
                 <mat-error *ngIf="!signUpForm.controls.firstName.valid">Please enter valid First Name</mat-error>
             </mat-form-field>
             <mat-form-field>
-                <input matInput type="text" placeholder="Last Name" formControlName="lastName" required>
+                <input matInput type="text" placeholder="Last Name" formControlName="lastName" [(ngModel)]="signUpForm.lastName" required>
                 <mat-error *ngIf="!signUpForm.controls.lastName.valid">Please enter valid Last Name</mat-error>
             </mat-form-field>
             <mat-form-field>
-                <input matInput type="text" placeholder="Phone Number" formControlName="phoneNumber" required>
+                <input matInput type="text" placeholder="Phone Number" formControlName="phoneNumber" [(ngModel)]="signUpForm.phoneNumber" required>
                 <mat-error *ngIf="!signUpForm.controls.phoneNumber.valid">Please enter valid Phone Number</mat-error>
             </mat-form-field>
             <mat-form-field>
-                <input matInput type="text" placeholder="Address" formControlName="address" required>
+                <input matInput type="text" placeholder="Address" formControlName="address" [(ngModel)]="signUpForm.address" required>
                 <mat-error *ngIf="!signUpForm.controls.address.valid">Please enter valid Address</mat-error>
             </mat-form-field>
             <mat-form-field>
-                <input matInput type="text" placeholder="Username" formControlName="userName" required>
+                <input matInput type="text" placeholder="Username" formControlName="userName" [(ngModel)]="signUpForm.userName" required>
                 <mat-error *ngIf="!signUpForm.controls.userName.valid">Please enter valid Username</mat-error>
             </mat-form-field>
             <mat-form-field>
-                <input matInput type="password" placeholder="Password" [type]="hide ? 'password' : 'text'" formControlName="password" required>
+                <input matInput type="password" placeholder="Password" [type]="hide ? 'password' : 'text'" formControlName="password" [(ngModel)]="signUpForm.password" required>
                 <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                 <mat-error *ngIf="!signUpForm.controls.password.valid">Please enter valid password</mat-error>
             </mat-form-field>
