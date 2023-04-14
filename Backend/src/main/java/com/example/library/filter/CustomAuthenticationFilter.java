@@ -37,26 +37,26 @@ public class CustomAuthenticationFilter extends UsernamePasswordAuthenticationFi
 
     @Override
     public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response) throws AuthenticationException {
-        // try {
-        //     String username = request.getParameter("username");
-        //     String password = request.getParameter("password");
-        //     log.info("username is: {} " + username);
-        //     log.info("password is: {} " + password);
-        //     UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(username, password);
-        //     return authenticationManager.authenticate(authenticationToken);
-        // } catch (Exception e) {
-        //     throw new RuntimeException();
-        // }
-
         try {
-            User user = new ObjectMapper().readValue(request.getInputStream(), User.class);
-            log.info("username is: {} " + user.getUsername());
-            
-            UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(user.getUsername(), user.getPassword());
+            String username = request.getParameter("username");
+            String password = request.getParameter("password");
+            log.info("username is: {} " + username);
+            log.info("password is: {} " + password);
+            UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(username, password);
             return authenticationManager.authenticate(authenticationToken);
-        } catch (IOException e) {
+        } catch (Exception e) {
             throw new RuntimeException();
         }
+
+        // try {
+        //     User user = new ObjectMapper().readValue(request.getInputStream(), User.class);
+        //     log.info("username is: {} " + user.getUsername());
+            
+        //     UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(user.getUsername(), user.getPassword());
+        //     return authenticationManager.authenticate(authenticationToken);
+        // } catch (IOException e) {
+        //     throw new RuntimeException();
+        // }
     }
 
     @Override
