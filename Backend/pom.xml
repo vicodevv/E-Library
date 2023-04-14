@@ -23,6 +23,11 @@
 			<version>3.18.1</version>
 		</dependency>
 		<dependency>
+			<groupId>com.arakelian</groupId>
+			<artifactId>jackson-utils</artifactId>
+			<version>1.1.0</version>
+		</dependency>
+		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
 			<optional>true</optional>
