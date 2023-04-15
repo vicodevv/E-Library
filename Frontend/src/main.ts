@@ -5,5 +5,5 @@ import { CustomerModule } from './app/customers/customer.module';
 
 
 
-platformBrowserDynamic().bootstrapModule(CustomerModule)
+platformBrowserDynamic().bootstrapModule(AdminModule)
   .catch(err => console.error(err));

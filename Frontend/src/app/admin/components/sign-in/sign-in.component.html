@@ -3,13 +3,27 @@
         <h1>Welcome Back</h1>
         <p>Login to your account</p>
 
-        <input type="text" placeholder="Username">
-        <input type="password" placeholder="Password">
+        <form
+            *ngIf="!isLoggedIn"
+            name="form"
+            [formGroup]="loginForm"
+            (ngSubmit)="onSubmit()" >
 
+            <mat-form-field>
+                <input matInput type="text" placeholder="Username" formControlName="userName" name="userName" [(ngModel)]="loginForm.userName" required>
+                <mat-error *ngIf="!loginForm.controls.userName.valid">Please enter valid Username</mat-error>
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput type="password" placeholder="Password"  [type]="hide ? 'password' : 'text'" formControlName="password" name="password" [(ngModel)]="loginForm.password" required>
+                <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                <mat-error *ngIf="!loginForm.controls.password.valid">Please enter valid password</mat-error>
+            </mat-form-field>
+            <p style="color:red" *ngIf="loginError">{{loginError}}</p>
         <p>New User?
             <a (click)="signUpPage()">SignUp</a>
         </p>
-        <button (click)="homePage()" class="signin-button">Sign In</button>
+        <button class="signin-button">Sign In</button>
+        </form>
     </div>
     <div class="signin-container-right">
         <img src="../../../../assets/library-books.jpg" alt="">
