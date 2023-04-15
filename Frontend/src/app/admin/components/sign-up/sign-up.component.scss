@@ -26,7 +26,13 @@
                     color: purple;
                 }
             }
-            input{
+            form{
+                display: flex;
+                flex-direction: column;
+                margin-top: 20px;
+                width: 70%;
+
+            .matInput{
                 width: 500px;
                 height: 50px;
                 border: 1px solid #ccc;
@@ -37,7 +43,7 @@
             }
 
             button{
-                width: 520px;
+                width: 470px;
                 height: 50px;
                 border: 1px solid #ccc;
                 border-radius: 5px;
@@ -48,6 +54,7 @@
                 font-weight: bold;
                 cursor: pointer;
             }
+        }
         }
         &-right{
              height: 100vh;
