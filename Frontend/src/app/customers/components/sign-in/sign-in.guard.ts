@@ -1,9 +1,9 @@
-import { ActivatedRouteSnapshot, CanActivate, RouterStateSnapshot } from "@angular/router";
+// import { ActivatedRouteSnapshot, CanActivate, RouterStateSnapshot } from "@angular/router";
 
-export class LoginGuard implements CanActivate {
-    canActivate(
-        next: ActivatedRouteSnapshot,
-        state: RouterStateSnapshot): boolean {
-        return true;
-    }
-}
+// export class LoginGuard implements CanActivate {
+//     canActivate(
+//         next: ActivatedRouteSnapshot,
+//         state: RouterStateSnapshot): boolean {
+//         return true;
+//     }
+// }
