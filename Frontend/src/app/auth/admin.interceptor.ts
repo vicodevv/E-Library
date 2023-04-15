@@ -8,7 +8,7 @@ import { catchError, Observable, throwError } from 'rxjs';
 const TOKEN_HEADER_KEY = 'Authorization';       // for Spring Boot back-end
 
 @Injectable()
-export class AuthInterceptor implements HttpInterceptor {
+export class AdminInterceptor implements HttpInterceptor {
   constructor(private token: TokenStorageService) { }
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
@@ -23,7 +23,7 @@ export class AuthInterceptor implements HttpInterceptor {
     catchError((error: HttpErrorResponse) => {
       if (error.status === 401 || error.status === 403) {
         // auto logout if 401 response returned from api
-        window.location.href = "/sign-in";
+        window.location.href = "/admin/sign-in";
         this.token.signOut();
       }
       const err = error.error.message || error.statusText;
@@ -35,5 +35,5 @@ export class AuthInterceptor implements HttpInterceptor {
 }
 
 export const authInterceptorProviders = [
-  { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
+  { provide: HTTP_INTERCEPTORS, useClass: AdminInterceptor, multi: true }
 ];

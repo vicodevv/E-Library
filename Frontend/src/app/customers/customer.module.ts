@@ -22,7 +22,7 @@ import { ModalComponent } from './components/modal/modal.component';
 import { MdbModalService } from 'mdb-angular-ui-kit/modal';
 import { CustomerComponent } from './customer.component';
 import { CookieService } from 'ngx-cookie-service';
-import { AuthInterceptor } from '../auth/auth.interceptor';
+import { CustomerInterceptor } from '../auth/customer.interceptor';
 
 @NgModule({
   declarations: [
@@ -54,7 +54,7 @@ import { AuthInterceptor } from '../auth/auth.interceptor';
     MdbModalService,
     CookieService, {
       provide: HTTP_INTERCEPTORS,
-      useClass: AuthInterceptor,
+      useClass: CustomerInterceptor,
       multi: true
   },
   ],
