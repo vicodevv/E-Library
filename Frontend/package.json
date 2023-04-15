@@ -23,6 +23,7 @@
     "@ng-icons/core": "^23.1.0",
     "@ng-icons/feather-icons": "^23.1.0",
     "@ng-icons/octicons": "^23.1.0",
+    "@rxjs/rx": "^4.1.0",
     "angular-gauge": "^4.0.0",
     "bootstrap": "^5.2.3",
     "bootstrap-icons": "^1.10.3",
