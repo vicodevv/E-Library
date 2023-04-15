@@ -20,6 +20,7 @@ import { HttpService } from '../auth/auth.service';
 import { MdbModalService } from 'mdb-angular-ui-kit/modal';
 import { CookieService } from 'ngx-cookie-service';
 import { AdminInterceptor } from '../auth/admin.interceptor';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { AdminInterceptor } from '../auth/admin.interceptor';
     MatInputModule,
     MatSelectModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule
   ],
   providers: [
     HttpService,
