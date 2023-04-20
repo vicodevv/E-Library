@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Router } from 'express';
+import { Router } from '@angular/router';
 import { HttpService } from 'src/app/auth/auth.service';
 
 @Component({
@@ -20,6 +20,10 @@ export class BooksComponent implements OnInit{
     totalQuantity: new FormControl('', [Validators.required]),
     coverPage: new FormControl('', [Validators.required]),
   });
+  isSuccessful = false;
+  isSignUpFailed = false;
+  errorMessage = '';
+  hide = true;
 
   constructor(
     private httpService : HttpService,
@@ -35,6 +39,9 @@ export class BooksComponent implements OnInit{
     this.httpService.addBook(title, author, publishedDate, category, packageType, availableQuantity, totalQuantity, coverPage).subscribe(
       data => {
         console.log(data);
+        this.isSuccessful = true;
+        this.isSignUpFailed = false;
+        this.router.navigateByUrl('admin');
       }
     );
   }

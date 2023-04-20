@@ -1,23 +1,45 @@
 
 <div class="books-container">
-        <input type="text" placeholder="Title">
-        <input type="text" placeholder="Author">
-        <input type="date" placeholder="Published Date">
-        
-        <select name="Category" id="">
-            <option value="Paper Back">Science</option>
-            <option value="Paper Back">Fiction</option>
-            <option value="Paper Back">Arts</option>
-            <option value="Paper Back">Religious</option>
-            <option value="Paper Back">Business</option>
-            <option value="Paper Back">Law</option>
-            <option value="Paper Back">Social</option>
-        </select>
-        <select name="Package Type" id="">
-            <option value="Paper Back">Paper Back</option>
-            <option value="Hard Cover">Hard Cover</option>
-        </select>
-        <input type="number" placeholder="Available Quantity">
-        <input type="number" placeholder="Total Quantity">
-        <input type="text" placeholder="Cover Page">
+    <form [formGroup]="booksForm" (ngSubmit)="onSubmit()">
+        <mat-form-field>
+            <input matInput type="text" placeholder="Title" formControlName="title" [(ngModel)]="booksForm.title" required>
+            <mat-error *ngIf="!booksForm.controls.title.valid">Please enter valid Title</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput type="text" placeholder="Author" formControlName="author" [(ngModel)]="booksForm.author" required>
+            <mat-error *ngIf="!booksForm.controls.author.valid">Please enter valid Author</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-select placeholder="Category" formControlName="category" [(ngModel)]="booksForm.category" required>
+                <mat-option value="Science">Science</mat-option>
+                <mat-option value="Fiction">Fiction</mat-option>
+                <mat-option value="Arts">Arts</mat-option>
+                <mat-option value="Religious">Religious</mat-option>
+                <mat-option value="Business">Business</mat-option>
+                <mat-option value="Law">Law</mat-option>
+                <mat-option value="Social">Social</mat-option>
+            </mat-select>
+            <mat-error *ngIf="!booksForm.controls.category.valid">Please enter valid Category</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-select placeholder="Package Type" formControlName="packageType" [(ngModel)]="booksForm.packageType" required>
+                <mat-option value="Paperback">Paperback</mat-option>
+                <mat-option value="Hardcover">Hardcover</mat-option>
+            </mat-select>
+            <mat-error *ngIf="!booksForm.controls.packageType.valid">Please enter valid Package Type</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput type="number" placeholder="Available Quantity" formControlName="availableQuantity" [(ngModel)]="booksForm.availableQuantity" required>
+            <mat-error *ngIf="!booksForm.controls.availableQuantity.valid">Please enter valid Available Quantity</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput type="number" placeholder="Total Quantity" formControlName="totalQuantity" [(ngModel)]="booksForm.totalQuantity" required>
+            <mat-error *ngIf="!booksForm.controls.totalQuantity.valid">Please enter valid Total Quantity</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput type="text" placeholder="Cover Page" formControlName="coverPage" [(ngModel)]="booksForm.coverPage" required>
+            <mat-error *ngIf="!booksForm.controls.coverPage.valid">Please enter valid Cover Page</mat-error>
+        </mat-form-field>
+        <button class="submit-button">Submit</button>
+    </form>
     </div>
