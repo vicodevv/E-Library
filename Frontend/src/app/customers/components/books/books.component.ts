@@ -30,7 +30,7 @@ export class BooksComponent implements OnInit {
   }
   openModal() {
     this.modalRef = this.modalService.open(ModalComponent, {
-      modalClass: 'modal-dialog-centered'
+      modalClass: 'modal-dialog-centered modal-dialog-scrollable',
     })
   }
 
