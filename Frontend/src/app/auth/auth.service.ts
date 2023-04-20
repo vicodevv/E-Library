@@ -27,6 +27,20 @@ export class HttpService {
     return this.http.get<APIResponse<Book>>( this.BASE_URL + '/api/books', httpOptions);
   }
 
+  // Add a book
+  addBook(title: string, author: string, publishedDate: string, category: string, packageType: string, availableQuantity: number, totalQuantity: number, coverPage: string){
+    return this.http.post(AUTH_API + 'books', {
+      title,
+      author,
+      publishedDate,
+      category,
+      packageType,
+      availableQuantity,
+      totalQuantity,
+      coverPage
+      }, httpOptions);
+  }
+
   // Login a user
   login(userName: string, password: string): Observable<any> {
     return this.http.post(AUTH_API + 'login', {
