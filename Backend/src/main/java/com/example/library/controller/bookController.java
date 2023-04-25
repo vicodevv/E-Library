@@ -52,9 +52,8 @@ public class BookController {
         bookService.borrowBook(bookId, userId);
     }
     
-    //Return book Controller
-    // @PutMapping("/return/{userId}/{bookId}")
-    // public void returnBook(@PathVariable Long bookId){
-    //     bookService.
-    // }
+    @PutMapping("/return/{userId}/{bookId}")
+    public void returnBook(@PathVariable Long bookId, @PathVariable Long userId){
+        bookService.returnBook(bookId, userId);
+    }
 }

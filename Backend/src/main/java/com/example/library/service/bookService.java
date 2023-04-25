@@ -66,6 +66,20 @@ public class BookService {
        
 
     //Return book Service
+    public void returnBook(Long bookId, Long userId) {
+        Date currentDate = new Date();
+        Optional<Borrow> borrowOptional = borrowRepository.findByUserId(userId);
+        Optional<Book> bookOptional = bookRepository.findById(bookId);
+        if (bookOptional.isPresent()) {
+            Book book = bookOptional.get();
+            Borrow borrow = borrowOptional.get();
+            borrow.setReturnDate(currentDate);
+            book.setAvailableQuantity(book.getAvailableQuantity().intValue() + 1);
+            bookRepository.save(book);
+        } else {
+            throw new IllegalStateException("Book with id " + bookId + " does not exist");
+        }
+    }
 
 }
 
