@@ -1,12 +1,16 @@
-<div class="modal-container">
-    <div class="modal-container-text">
-      <h1> Do you want to borrow this book?</h1>
-    </div>
-
-    <div class="modal-container-button">
-      <button type="button" class="close-button" (click)="modalRef.close()">
-        Close
-      </button>
-      <button type="button" class="borrow-button">Borrow Book</button>
-    </div>
- </div>
+<div class="modal-header">
+  <h5 class="modal-title" id="exampleModalLabel">{{ title }}</h5>
+  <button
+    type="button"
+    class="btn-close"
+    aria-label="Close"
+    (click)="modalRef.close()"
+  ></button>
+</div>
+<div class="modal-body">Do you want to borrow this book?</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-secondary" (click)="modalRef.close()">
+    Close
+  </button>
+  <button type="button" class="btn btn-primary">Borrow Book</button>
+</div>
