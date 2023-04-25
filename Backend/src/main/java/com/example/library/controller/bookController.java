@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -46,9 +47,14 @@ public class BookController {
     }
 
     //Borrow book Controller
-    @PostMapping("/borrow/{bookId}")
-    public void borrowBook(@PathVariable Long bookId){
-        bookService.borrowBook(bookId);
+    @PostMapping("/borrow/{userId}/{bookId}")
+    public void borrowBook(@PathVariable Long bookId, @PathVariable Long userId){
+        bookService.borrowBook(bookId, userId);
     }
     
+    //Return book Controller
+    // @PutMapping("/return/{userId}/{bookId}")
+    // public void returnBook(@PathVariable Long bookId){
+    //     bookService.
+    // }
 }
