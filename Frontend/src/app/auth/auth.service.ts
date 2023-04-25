@@ -46,6 +46,10 @@ export class HttpService {
     return this.http.delete<APIResponse<Book>>(this.BASE_URL + `/api/books/${bookId}`, httpOptions)
   }
 
+  // Borrow a book
+  borrowBook(bookId: number){
+    return this.http.post<APIResponse<Book>>(this.BASE_URL + `/api/books/borrow/${bookId}`, httpOptions)
+    }
   // Login a user
   login(userName: string, password: string): Observable<any> {
     return this.http.post(AUTH_API + 'login', {

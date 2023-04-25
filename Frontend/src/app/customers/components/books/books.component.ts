@@ -33,5 +33,13 @@ export class BooksComponent implements OnInit {
       modalClass: 'modal-dialog-centered modal-dialog-scrollable',
     })
   }
+  borrowBook(bookId: number){
+    this.httpService.borrowBook(bookId).subscribe(
+      (response: any) => {
+        console.log(response);
+        this.getBooks();
+      }
+    );
+  }
 
 }

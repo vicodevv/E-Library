@@ -43,7 +43,12 @@ public class BookController {
     @DeleteMapping("/{bookId}")
         public void deleteBook(@PathVariable Long bookId){
             bookService.deleteBook(bookId);
-        
+    }
+
+    //Borrow book Controller
+    @PostMapping("/borrow/{bookId}")
+    public void borrowBook(@PathVariable Long bookId){
+        bookService.borrowBook(bookId);
     }
     
 }
