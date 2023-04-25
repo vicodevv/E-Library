@@ -7,15 +7,23 @@
             <img src="{{ book.coverPage }}" alt="{{ book.title }}" />
         </div>
         <div class="books-container-books-book-info">
-            <h3>{{ book.title }}</h3>
+            <h3 style="height: 80px;">{{ book.title }}</h3>
             <div class="books-container-books-book-info-text">
                 <div class="books-container-books-book-info-text-left">
                     <p>{{ book.author }}</p>
                     <p>{{ book.publishedDate }}</p>
                     <p>{{ book.category }}</p>
+                    <ng-container *ngIf="book.availableQuantity === 0">
+                    <p style="color: red;">Out of stock</p>
+                    </ng-container>
+                    <ng-container *ngIf="book.availableQuantity > 0">
+                    <p style="color: green;">{{ book.availableQuantity }}</p>
+                    </ng-container>
+                    
+                
                 </div>
             <div class="books-container-books-book-info-text-right">
-                <button (click)="openModal()">+</button>
+                <button (click)="borrowBook(book.bookId)">+</button>
             </div>
         </div>
         </div>

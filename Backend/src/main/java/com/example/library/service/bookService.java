@@ -42,4 +42,20 @@ public class BookService {
         bookRepository.deleteById(bookId);
     }
 
+    //Borrow book Service
+    public void borrowBook(Long bookId) {
+        Optional<Book> bookOptional = bookRepository.findById(bookId);
+        if (bookOptional.isPresent()) {
+            Book book = bookOptional.get();
+            if (book.getAvailableQuantity().intValue() > 0) {
+                book.setAvailableQuantity(book.getAvailableQuantity().intValue() - 1);
+                bookRepository.save(book);
+            } else {
+                throw new IllegalStateException("Book is not available");
+            }
+        } else {
+            throw new IllegalStateException("Book with id " + bookId + " does not exist");
+        }
+    }
+
 }

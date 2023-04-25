@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { MdbModalRef } from 'mdb-angular-ui-kit/modal';
+import { HttpService } from 'src/app/auth/auth.service';
+import { Book } from 'src/app/models';
 
 @Component({
   selector: 'app-modal',
@@ -8,6 +10,19 @@ import { MdbModalRef } from 'mdb-angular-ui-kit/modal';
 })
 export class ModalComponent {
   title: string | null = null;
-  constructor(public modalRef: MdbModalRef<ModalComponent>) { }
+  public books: Array<Book> = [];
+  private bookId!: number;
+
+  constructor(
+    public modalRef: MdbModalRef<ModalComponent>,
+    private httpService: HttpService
+    ) {}
   
+  borrowBook(bookId: number){
+    this.httpService.borrowBook(bookId).subscribe(
+      (response: any) => {
+        console.log(response);
+      }
+    );
+  }
   }
