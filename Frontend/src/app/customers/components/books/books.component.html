@@ -16,14 +16,18 @@
                     <ng-container *ngIf="book.availableQuantity === 0">
                     <p style="color: red;">Out of stock</p>
                     </ng-container>
-                    <ng-container *ngIf="book.availableQuantity > 0">
+                   
+                   <!-- <ng-container *ngIf="book.availableQuantity > 0">
                     <p style="color: green;">{{ book.availableQuantity }}</p>
-                    </ng-container>
+                    </ng-container> -->
                     
                 
                 </div>
             <div class="books-container-books-book-info-text-right">
-                <button (click)="borrowBook(book.bookId)">+</button>
+                <ng-container *ngIf="book.availableQuantity > 0">
+                    <button (click)="borrowBook(book.bookId)">+</button>
+                </ng-container>
+                
             </div>
         </div>
         </div>
