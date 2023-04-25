@@ -18,6 +18,8 @@ export class SignInComponent implements OnInit  {
 
   isLoggedIn = false;
   isLoginFailed = false;
+
+
   errorMessage = 'Incorrect Username or Password';
   roles: string[] = [];
   hide = true;
@@ -50,13 +52,12 @@ export class SignInComponent implements OnInit  {
           this.router.navigateByUrl('/admin');
         },
         err => {
-          this.errorMessage = err.error.message;
           this.isLoginFailed = true;
+          if (this.isLoginFailed = true) {
+            this.loginError = 'Incorrect Username or Password';
+          }
         }
       );
-    }
-    reloadPage(): void {
-      window.location.reload();
     }
 
   homePage(): void {
