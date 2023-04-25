@@ -18,11 +18,4 @@ export class ModalComponent {
     private httpService: HttpService
     ) {}
   
-  borrowBook(bookId: number){
-    this.httpService.borrowBook(bookId).subscribe(
-      (response: any) => {
-        console.log(response);
-      }
-    );
-  }
   }
