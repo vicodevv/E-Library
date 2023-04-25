@@ -40,8 +40,8 @@ public class BookController {
     }
 
     //Delete book Controller
-    @DeleteMapping(path = "{bookId}")
-        public void deleteBook(@PathVariable("bookId") Long bookId){
+    @DeleteMapping("/{bookId}")
+        public void deleteBook(@PathVariable Long bookId){
             bookService.deleteBook(bookId);
         
     }
