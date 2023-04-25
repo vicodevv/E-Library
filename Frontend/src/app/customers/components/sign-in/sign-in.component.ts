@@ -48,8 +48,10 @@ export class SignInComponent implements OnInit {
         this.router.navigateByUrl('');
       },
       err => {
-        this.errorMessage = err.error.message;
         this.isLoginFailed = true;
+          if (this.isLoginFailed = true) {
+            this.loginError = 'Incorrect Username or Password';
+          }
       }
     );
   }
