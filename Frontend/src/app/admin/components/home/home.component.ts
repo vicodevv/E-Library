@@ -7,6 +7,7 @@ import { HttpService } from 'src/app/auth/auth.service';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
+  public bookId!: number;
   public books: Array<Book> = [];
 
   constructor(
@@ -21,6 +22,12 @@ export class HomeComponent implements OnInit {
     this.httpService.getAllBooks().subscribe((response: any) => {
       this.books = response;
       console.log(response);
+    });
+  }
+  deleteBook(bookId: number) {
+    this.httpService.deletebook(bookId).subscribe((response: any) => {
+      console.log(response);
+      this.getBooks();
     });
   }
 }

@@ -41,6 +41,11 @@ export class HttpService {
       }, httpOptions);
   }
 
+  //Delete a book
+  deletebook(bookId: number){
+    return this.http.delete<APIResponse<Book>>(this.BASE_URL + `/api/books/${bookId}`, httpOptions)
+  }
+
   // Login a user
   login(userName: string, password: string): Observable<any> {
     return this.http.post(AUTH_API + 'login', {
