@@ -10,6 +10,10 @@
             <mat-error *ngIf="!booksForm.controls.author.valid">Please enter valid Author</mat-error>
         </mat-form-field>
         <mat-form-field>
+            <input matInput type="date" placeholder="Published Date" formControlName="publishedDate" [(ngModel)]="booksForm.publishedDate" required>
+            <mat-error *ngIf="!booksForm.controls.publishedDate.valid">Please enter valid Published Date</mat-error>
+        </mat-form-field>
+        <mat-form-field>
             <mat-select placeholder="Category" formControlName="category" [(ngModel)]="booksForm.category" required>
                 <mat-option value="Science">Science</mat-option>
                 <mat-option value="Fiction">Fiction</mat-option>
