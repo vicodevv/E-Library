@@ -49,6 +49,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
         http.authorizeRequests().antMatchers(HttpMethod.DELETE, "/api/books/**").permitAll();
         http.authorizeRequests().antMatchers(HttpMethod.GET, "/api/books/**").permitAll();
         http.authorizeRequests().antMatchers(HttpMethod.POST, "/api/books/**").permitAll();
+        http.authorizeRequests().antMatchers(HttpMethod.PUT, "/api/books/**").permitAll();
         http.authorizeRequests().anyRequest().authenticated();
         http.addFilterBefore(new ExceptionHandlerFilter(), CustomAuthenticationFilter.class);
         http.addFilter(customAuthenticationFilter);

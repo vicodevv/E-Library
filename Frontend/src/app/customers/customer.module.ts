@@ -47,7 +47,7 @@ import { CustomerInterceptor } from '../auth/customer.interceptor';
     MatInputModule,
     MatSelectModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   providers: [
     HttpService,

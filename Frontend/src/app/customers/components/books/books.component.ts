@@ -3,6 +3,7 @@ import { APIResponse, Book } from 'src/app/models';
 import { HttpService } from 'src/app/auth/auth.service';
 import { MdbModalRef, MdbModalService } from 'mdb-angular-ui-kit/modal';
 import { ModalComponent } from '../modal/modal.component';
+import {PageEvent} from '@angular/material/paginator';
 
 @Component({
   selector: 'app-books',
@@ -12,6 +13,25 @@ import { ModalComponent } from '../modal/modal.component';
 export class BooksComponent implements OnInit {
   public books: Array<Book> = [];
   modalRef: MdbModalRef<ModalComponent> | null = null;
+
+  length = 50;
+  pageSize = 10;
+  pageIndex = 0;
+  pageSizeOptions = [5, 10, 25];
+
+  hidePageSize = false;
+  showPageSizeOptions = true;
+  showFirstLastButtons = true;
+  disabled = false;
+
+  pageEvent!: PageEvent;
+
+  handlePageEvent(e: PageEvent) {
+    this.pageEvent = e;
+    this.length = e.length;
+    this.pageSize = e.pageSize;
+    this.pageIndex = e.pageIndex;
+  }
 
   constructor(
     private httpService: HttpService,
