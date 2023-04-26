@@ -3,12 +3,14 @@ package com.example.library.dto;
 import java.util.ArrayList;
 import java.util.Collection;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Table;
@@ -24,9 +26,6 @@ import lombok.NoArgsConstructor;
 @Table
 public class User {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    // @OneToOne(targetEntity = Borrow.class, fetch = FetchType.EAGER)
-    // @JoinColumn(name = "userId", referencedColumnName = "userId")
     private Long userId;
     private String firstName;
     private String lastName;
