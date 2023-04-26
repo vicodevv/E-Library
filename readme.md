@@ -25,6 +25,8 @@ permissions.
 - authorized
 - admin
 
+<img src="https://user-images.githubusercontent.com/55485439/234560693-0ddf3b27-7751-4a08-8f8f-ca7e6ae1d62b.png" width=700>
+
 User: 
 		FirstName
 		LastName
