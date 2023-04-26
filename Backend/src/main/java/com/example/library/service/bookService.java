@@ -1,29 +1,27 @@
 package com.example.library.service;
 
-import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestBody;
 
 import com.example.library.Repository.BookRepository;
-import com.example.library.Repository.BorrowRepository;
+import com.example.library.Repository.OrderRepository;
 import com.example.library.Repository.UserRepository;
 import com.example.library.dto.Book;
-import com.example.library.dto.Borrow;
+import com.example.library.dto.Order;
 import com.example.library.dto.User;
 
 @Service
 public class BookService {
     private final BookRepository bookRepository;
-    private final BorrowRepository borrowRepository;
+    private final OrderRepository orderRepository;
 
     @Autowired
-    public BookService(BookRepository bookRepository, BorrowRepository borrowRepository) {
+    public BookService(BookRepository bookRepository, OrderRepository orderRepository) {
         this.bookRepository = bookRepository;
-        this.borrowRepository = borrowRepository;
+        this.orderRepository = orderRepository;
     }
 
     //Get all books Service

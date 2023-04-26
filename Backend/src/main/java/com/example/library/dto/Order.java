@@ -7,11 +7,6 @@ import javax.persistence.EntityListeners;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -21,7 +16,7 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 @Entity
 @EntityListeners(AuditingEntityListener.class)
 @Table
-public class Borrow {
+public class Order {
     @Id
     @SequenceGenerator(
             name = "book_sequence",
@@ -38,17 +33,17 @@ public class Borrow {
     private Date borrowDate;
     private Date returnDate;
 
-    public Borrow(){   
+    public Order(){   
     }
 
-    public Borrow(Long userId, Long bookId, Date borrowDate, Date returnDate){
+    public Order(Long userId, Long bookId, Date borrowDate, Date returnDate){
         this.userId = userId;
         this.bookId = bookId;
         this.borrowDate = borrowDate;
         this.returnDate = returnDate;
     }
 
-    public Borrow(Long bookId, Date borrowDate, Date returnDate){
+    public Order(Long bookId, Date borrowDate, Date returnDate){
         this.bookId = bookId;
         this.borrowDate = borrowDate;
         this.returnDate = returnDate;
