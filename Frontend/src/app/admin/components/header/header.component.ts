@@ -13,4 +13,8 @@ export class HeaderComponent {
     this.router.navigateByUrl('admin/books');
   }
 
+  homepage(): void {
+    this.router.navigateByUrl('admin');
+  }
+
 }

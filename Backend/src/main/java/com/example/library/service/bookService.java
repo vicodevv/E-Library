@@ -6,11 +6,14 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import com.example.library.Repository.BookRepository;
 import com.example.library.Repository.BorrowRepository;
+import com.example.library.Repository.UserRepository;
 import com.example.library.dto.Book;
 import com.example.library.dto.Borrow;
+import com.example.library.dto.User;
 
 @Service
 public class BookService {
@@ -48,38 +51,56 @@ public class BookService {
     }
 
     //Borrow book Service
-    public void borrowBook(Long bookId, Long userId) {
-        Date currentDate = new Date();
-        Optional<Borrow> borrowOptional = borrowRepository.findByUserId(userId);
-        Optional<Book> bookOptional = bookRepository.findById(bookId);
-        if (borrowOptional.isPresent()) {
-            Book book = bookOptional.get();
-            Borrow borrow = borrowOptional.get();
-            borrow.setBorrowDate(currentDate);
-            book.setAvailableQuantity(book.getAvailableQuantity().intValue() - 1);
-            bookRepository.save(book);
-        }
-        else {
-            throw new IllegalStateException("Book with id " + bookId + " does not exist");
-        }
-    }
-       
-
-    //Return book Service
-    public void returnBook(Long bookId, Long userId) {
-        Date currentDate = new Date();
-        Optional<Borrow> borrowOptional = borrowRepository.findByUserId(userId);
+    public void borrowBook(Long bookId) {
         Optional<Book> bookOptional = bookRepository.findById(bookId);
         if (bookOptional.isPresent()) {
             Book book = bookOptional.get();
-            Borrow borrow = borrowOptional.get();
-            borrow.setReturnDate(currentDate);
-            book.setAvailableQuantity(book.getAvailableQuantity().intValue() + 1);
-            bookRepository.save(book);
+            if (book.getAvailableQuantity().intValue() > 0) {
+                book.setAvailableQuantity(book.getAvailableQuantity().intValue() - 1);
+                bookRepository.save(book);
+            } else {
+                throw new IllegalStateException("Book is not available");
+            }
         } else {
             throw new IllegalStateException("Book with id " + bookId + " does not exist");
         }
     }
+
+    // Borrow book Service
+    // public void borrowBook(@RequestBody Borrow borrow) {
+    //     Date currentDate = new Date();
+    //     //Optional<Borrow> borrowOptional = borrowRepository.findByUserId(userId);
+    //     // User user = UserRepository.findById(borrow.getUserId()).get();
+    //     // Book book = BookRepository.findById(borrow.getBookId()).get();
+
+    //     if (book.getAvailableQuantity().intValue() > 0) {
+    //         borrow.setBorrowDate(currentDate);
+    //         borrow.setReturnDate(null);
+    //         borrowRepository.save(borrow);
+    //         book.setAvailableQuantity(book.getAvailableQuantity().intValue() - 1);
+    //         bookRepository.save(book);
+    //     } else {
+    //         throw new IllegalStateException("Book is not available");
+    //     }
+    // }
+
+       
+
+    // //Return book Service
+    // public void returnBook(Long bookId, Long userId) {
+    //     Date currentDate = new Date();
+    //     Optional<Borrow> borrowOptional = borrowRepository.findByUserId(userId);
+    //     Optional<Book> bookOptional = bookRepository.findById(bookId);
+    //     if (bookOptional.isPresent()) {
+    //         Book book = bookOptional.get();
+    //         Borrow borrow = borrowOptional.get();
+    //         borrow.setReturnDate(currentDate);
+    //         book.setAvailableQuantity(book.getAvailableQuantity().intValue() + 1);
+    //         bookRepository.save(book);
+    //     } else {
+    //         throw new IllegalStateException("Book with id " + bookId + " does not exist");
+    //     }
+    // }
 
 }
 

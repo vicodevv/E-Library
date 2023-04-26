@@ -9,6 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
@@ -31,8 +32,6 @@ public class Borrow {
             strategy = GenerationType.SEQUENCE,
             generator = "book_sequence"
     )
-    // @OneToOne(targetEntity = User.class, optional = false)
-    // @JoinColumn(name = "userId", referencedColumnName = "userId")
     private Long userId;
     private Long bookId;
     @CreatedDate

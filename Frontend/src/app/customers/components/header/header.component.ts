@@ -13,4 +13,8 @@ export class HeaderComponent {
   booksPage(): void {
     this.router.navigateByUrl('books');
   }
+
+  homepage(): void {
+    this.router.navigateByUrl('');
+  }
 }
