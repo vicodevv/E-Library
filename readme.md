@@ -27,31 +27,8 @@ permissions.
 
 <img src="https://user-images.githubusercontent.com/55485439/234560693-0ddf3b27-7751-4a08-8f8f-ca7e6ae1d62b.png" width=700>
 
-User: 
-		FirstName
-		LastName
-		Email
-		PhoneNumber
-		Address
-		
-	Roles:
-		Admin
-		Customers
-		
-	Book:
-		Author
-		Title
-		PublishedDate
-		Category (Enum: Science, Fiction, Arts, Religious, Business, Law, Social)
-		PackageType (Enum: Paperback, Hardcover)
-		AvailableQuantity (number of books available to borrow)
-		TotalQuantity (total books stocked)
-		CoverPage (image)
-		
-	Order:
-		User  
-		Book
-		RequestedDate
-		DueDate
-		ReturnedDate
-
+## preview
+<img src="https://user-images.githubusercontent.com/55485439/234602249-c5487928-ebf4-42e7-96f8-19d4b7736886.png" width=800>
+<img src="https://user-images.githubusercontent.com/55485439/234602467-0fb0c2a9-7027-450d-b57e-5bf77a401a32.png" width=800>
+<img src="https://user-images.githubusercontent.com/55485439/234602575-31a9effe-4647-4582-8092-1397c6e846c4.png" width=800>
+<img src="https://user-images.githubusercontent.com/55485439/234602745-62761b3b-31d1-461a-8575-b111095da769.png" width=800>
