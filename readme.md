@@ -1,19 +1,31 @@
 # library-store	
-Description ::
-	Develop a spring boot web application for managing a small library.
-	The application should have a frontend interface and a backend (admin) interface.
-	Library Managers should be able to add books to the library's collection via the
-	admin interface.
-	Customers should be able to browse for books, borrow and return the books via the 
-	frontend interface.
-	They should also be able to see past books they have borrowed.
-	When a book has exceeded it's rental period, an automatic mail should be triggered
-	remind the customer to return it.
-	::
-    
-Entities (NOTE: Not all possible fields are provided, use your intuition where necessary) ::
+A spring boot web application for managing a small library. The application has a frontend interface and a backend (admin) interface. Library Managers can add books to the library's collection via the admin interface. Customers can browse for books, borrow and return the books via the frontend interface. They can see past books they have borrowed. When a book has exceeded it's rental period, an automatic mail is being triggered to remind the customer to return it.
 
-	User: 
+## technologies
+- Spring Boot
+- Angular
+- MySQL
+
+## features
+- Login/Register
+- Admin Interface
+- searching for books
+- pagination
+- book borrow system
+- user list (activating/deactivating, deleting..)
+- Create/Read/Delete operations for copies, books, authors and categories
+
+## Security
+Project provides authentication and authorization with JWT Spring Security.
+There are parts of application available for not logged users, and parts that require specific
+permissions.
+> User types:
+- not logged in
+- unauthorized
+- authorized
+- admin
+
+User: 
 		FirstName
 		LastName
 		Email
@@ -40,6 +52,14 @@ Entities (NOTE: Not all possible fields are provided, use your intuition where n
 		RequestedDate
 		DueDate
 		ReturnedDate
+
+Description ::
+	Develop 
+	::
+    
+Entities (NOTE: Not all possible fields are provided, use your intuition where necessary) ::
+
+	
 		
 		# library-store
 
