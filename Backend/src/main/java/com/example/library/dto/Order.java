@@ -1,12 +1,16 @@
 package com.example.library.dto;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.EntityListeners;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -48,12 +52,11 @@ public class Order {
         this.borrowDate = borrowDate;
         this.returnDate = returnDate;
     }
-
-    // Getters and Setters for userId
-    public Long getUserId() {
+    //Getters and Setters for userId
+    public Long getUserId(){
         return userId;
     }
-    public void setUserId(Long userId) {
+    public void setUserId(Long userId){
         this.userId = userId;
     }
 
