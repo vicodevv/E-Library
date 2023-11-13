@@ -24,12 +24,12 @@ public class BookService {
         this.orderRepository = orderRepository;
     }
 
-    //Get all books Service
+    // Get all books Service
     public List<Book> getBooks() {
         return bookRepository.findAll();
     }
 
-    //Add book Service
+    // Add book Service
     public void addNewBook(Book book) {
         Optional<Book> bookOptional = bookRepository.findBookByTitle(book.getTitle());
 
@@ -39,7 +39,7 @@ public class BookService {
         bookRepository.save(book);
     }
 
-    //Delete book Service
+    // Delete book Service
     public void deleteBook(Long bookId) {
         boolean exists = bookRepository.existsById(bookId);
         if (!exists) {
@@ -48,7 +48,7 @@ public class BookService {
         bookRepository.deleteById(bookId);
     }
 
-    //Borrow book Service
+    // Borrow book Service
     public void borrowBook(Long bookId) {
         Optional<Book> bookOptional = bookRepository.findById(bookId);
         if (bookOptional.isPresent()) {
@@ -63,62 +63,4 @@ public class BookService {
             throw new IllegalStateException("Book with id " + bookId + " does not exist");
         }
     }
-
-    // Borrow book Service
-    // public void borrowBook(@RequestBody Borrow borrow) {
-    //     Date currentDate = new Date();
-    //     //Optional<Borrow> borrowOptional = borrowRepository.findByUserId(userId);
-    //     // User user = UserRepository.findById(borrow.getUserId()).get();
-    //     // Book book = BookRepository.findById(borrow.getBookId()).get();
-
-    //     if (book.getAvailableQuantity().intValue() > 0) {
-    //         borrow.setBorrowDate(currentDate);
-    //         borrow.setReturnDate(null);
-    //         borrowRepository.save(borrow);
-    //         book.setAvailableQuantity(book.getAvailableQuantity().intValue() - 1);
-    //         bookRepository.save(book);
-    //     } else {
-    //         throw new IllegalStateException("Book is not available");
-    //     }
-    // }
-
-       
-
-    // //Return book Service
-    // public void returnBook(Long bookId, Long userId) {
-    //     Date currentDate = new Date();
-    //     Optional<Borrow> borrowOptional = borrowRepository.findByUserId(userId);
-    //     Optional<Book> bookOptional = bookRepository.findById(bookId);
-    //     if (bookOptional.isPresent()) {
-    //         Book book = bookOptional.get();
-    //         Borrow borrow = borrowOptional.get();
-    //         borrow.setReturnDate(currentDate);
-    //         book.setAvailableQuantity(book.getAvailableQuantity().intValue() + 1);
-    //         bookRepository.save(book);
-    //     } else {
-    //         throw new IllegalStateException("Book with id " + bookId + " does not exist");
-    //     }
-    // }
-
 }
-
-// returnBook(Long bookId) {
-//     Date currentDate = new Date();
-//     Optional<Book> bookOptional = bookRepository.findById(bookId);
-//     if (bookOptional.isPresent()) {
-//         Book book = bookOptional.get();
-//         book.setReturnDate(currentDate);
-//         book.setAvailableQuantity(book.getAvailableQuantity().intValue() + 1);
-//         bookRepository.save(book);
-//     } else {
-//         throw new IllegalStateException("Book with id " + bookId + " does not exist");
-//     }
-//public void borrowBook(Long userId, Long bookId){
-//     Date currentDate = new Date();
-//     Optional<Borrow> borrowOptional = borrowRepository.findByBookId(bookId);
-//     if (borrowOptional.isPresent()) {
-//         throw new IllegalStateException("Book is already borrowed");
-//     }
-    
-// }
-// }

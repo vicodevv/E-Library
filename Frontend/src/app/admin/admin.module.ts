@@ -58,3 +58,4 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   bootstrap: [AdminComponent]
 })
 export class AdminModule { }
+
